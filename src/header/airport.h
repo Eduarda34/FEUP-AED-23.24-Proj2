@@ -12,6 +12,7 @@ private:
     string city;
     string country;
     Coordinate coordinate;
+    double leti, longi;
 
 public:
     Airport(string code, string name, string city, string country, double lati, double longi);
