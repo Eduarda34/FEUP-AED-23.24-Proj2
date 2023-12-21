@@ -1,7 +1,9 @@
 #ifndef AIRPORT_COORDINATE_H
 #define AIRPORT_COORDINATE_H
 
+
 using namespace std;
+
 
 class Coordinate {
 private:

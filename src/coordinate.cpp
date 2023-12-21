@@ -1,7 +1,7 @@
 #include "header/coordinate.h"
 
-using namespace std;
 
+using namespace std;
 Coordinate::Coordinate(){
     this->lati = 0;
     this->longi = 0;
