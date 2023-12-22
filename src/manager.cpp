@@ -5,6 +5,8 @@
 
 using namespace std;
 
+//Reads the csv files and fills the list airports with the elements of the class airport
+//Time Complexity O(n), being n the number of lines of airports.csv
 void manager::buildAirports() {
     ifstream airportsData("../dataset/airports.csv");
     string line, code,name,city,country,latitude,longitude;
