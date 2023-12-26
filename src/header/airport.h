@@ -28,6 +28,9 @@ public:
     void setCity(string city);
     void setCountry(string country);
     void setCoordinate(double lati, double longi);
+    bool operator > (const Airport e) const;
+    bool operator < (const Airport e) const;
+    bool operator == (const Airport e) const;
 
 };
 

@@ -22,14 +22,12 @@ void manager::buildAirports() {
         float fLatitude = stof(latitude);
         float fLongitude = stof(longitude);
         Airport airport = Airport(code, name, city, country, fLatitude, fLongitude);
-        airports.push_back(airport);
+        airportsGraph.addVertex(airport);
     }
-
-
 }
 
-list<Airport> manager::getAirports() {
-    return airports;
+Graph<Airport> manager::getAirports() {
+    return airportsGraph;
 }
 
 

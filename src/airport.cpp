@@ -31,3 +31,15 @@ string Airport::getCountry(){
 Coordinate Airport::getCoordinate(){
     return this->coordinate;
 }
+
+bool Airport::operator > (const Airport e) const {
+    return this->name > e.name;
+}
+
+bool Airport::operator < (const Airport e) const {
+    return this->name < e.name;
+}
+
+bool Airport::operator == (const Airport e) const {
+    return this->name == e.name;
+}

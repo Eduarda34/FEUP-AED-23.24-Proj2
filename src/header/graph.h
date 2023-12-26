@@ -50,8 +50,10 @@ class Graph {
     vector<Vertex<T> *> vertexSet;
 public:
     Vertex<T> *findVertex(const T &in) const;
-    vector<Vertex<T> * > getVertexSet() const;
+    const vector<Vertex<Airport> *> getVertexSet() const;
     int getNumVertex() const;
+    bool addVertex(const T &in);
+    bool addEdge(const T &sourc, const T &dest, double w);
 };
 
 
@@ -68,7 +70,7 @@ int Graph<T>::getNumVertex() const {
 }
 
 template <class T>
-vector<Vertex<T> * > Graph<T>::getVertexSet() const {
+const vector<Vertex<Airport> *> Graph<T>::getVertexSet() const {
     return vertexSet;
 }
 
@@ -115,7 +117,7 @@ void Edge<T>::setWeight(double weight) {
 template <class T>
 Vertex<T> * Graph<T>::findVertex(const T &in) const {
     for (auto v : vertexSet)
-        if (v->info == in)
+        if (static_cast<const Airport>(v->info) == in)
             return v;
     return NULL;
 }
@@ -138,6 +140,25 @@ const vector<Edge<T>> &Vertex<T>::getAdj() const {
 template <class T>
 void Vertex<T>::setAdj(const vector<Edge<T>> &adj) {
     Vertex::adj = adj;
+}
+
+template <class T>
+bool Graph<T>::addVertex(const T &in) {
+    if ( findVertex(in) != NULL)
+        return false;
+    vertexSet.push_back(new Vertex<T>(in));
+    return true;
+}
+
+
+template <class T>
+bool Graph<T>::addEdge(const T &sourc, const T &dest, double w) {
+    auto v1 = findVertex(sourc);
+    auto v2 = findVertex(dest);
+    if (v1 == NULL || v2 == NULL)
+        return false;
+    v1->addEdge(v2,w);
+    return true;
 }
 
 #endif //AIRPORT_GRAPH_H

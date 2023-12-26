@@ -9,11 +9,10 @@ using namespace std;
 
 class manager {
 private:
-    list<Airport> airports; //Lista de aeroportos para retirar informações extra quando necessario
-    Graph<Airport> airportsGraph;
+    Graph<Airport> airportsGraph; //Airports as Vertex
 public:
     void buildAirports();
-    list<Airport> getAirports();
+    Graph<Airport> getAirports();
 };
 
 #endif //PROJECT2_MANAGER_H
