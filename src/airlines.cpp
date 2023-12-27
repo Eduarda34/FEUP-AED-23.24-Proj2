@@ -6,10 +6,11 @@
 using namespace std;
 
 
-Airlines::Airlines(string name, string code, string country) {
+Airlines::Airlines(string name, string code,string callsign, string country) {
     this->name = name;
     this->code = code;
     this->country = country;
+    this->callsign = callsign;
 }
 
 string Airlines::getCode() {
@@ -22,4 +23,16 @@ string Airlines::getName() {
 
 string Airlines::getCountry() {
     return this->country;
+}
+
+bool Airlines::operator > (const Airlines e) const {
+    return this->code > e.code;
+}
+
+bool Airlines::operator < (const Airlines e) const {
+    return this->code < e.code;
+}
+
+bool Airlines::operator == (const Airlines e) const {
+    return this->code == e.code;
 }

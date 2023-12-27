@@ -1,9 +1,11 @@
 #ifndef AIRPORT_GRAPH_H
 #define AIRPORT_GRAPH_H
 
+
 #include <cstddef>
 #include <vector>
 #include <queue>
+#include "airlines.h"
 
 using namespace std;
 
@@ -11,13 +13,18 @@ template <class T> class Edge;
 template <class T> class Graph;
 template <class T> class Vertex;
 
+
+/****************** Provided structures  ********************/
+
 template <class T>
 class Vertex {
-    T info;
-    vector<Edge<T> > adj;
-    bool visited;
-    bool processing;
+    T info;                // contents
+    vector<Edge<T> > adj;  // list of outgoing edges
+    bool visited;          // auxiliary field
+    bool processing;       // auxiliary field
 
+    void addEdge(Vertex<T> *dest, Airlines w);
+    bool removeEdgeTo(Vertex<T> *d);
 public:
     Vertex(T in);
     T getInfo() const;
@@ -34,12 +41,12 @@ public:
 template <class T>
 class Edge {
     Vertex<T> * dest;      // destination vertex
-    double weight;         // edge weight
+    Airlines weight;         // edge weight
 public:
-    Edge(Vertex<T> *d, double w);
+    Edge(Vertex<T> *d, Airlines w);
     Vertex<T> *getDest() const;
     void setDest(Vertex<T> *dest);
-    double getWeight() const;
+    const Airlines getWeight() const;
     void setWeight(double weight);
     friend class Graph<T>;
     friend class Vertex<T>;
@@ -47,21 +54,29 @@ public:
 
 template <class T>
 class Graph {
-    vector<Vertex<T> *> vertexSet;
+    vector<Vertex<T> *> vertexSet;    // vertex set
+    void dfsVisit(Vertex<T> *v,  vector<T> & res) const;
+    bool dfsIsDAG(Vertex<T> *v) const;
 public:
     Vertex<T> *findVertex(const T &in) const;
-    const vector<Vertex<Airport> *> getVertexSet() const;
     int getNumVertex() const;
     bool addVertex(const T &in);
-    bool addEdge(const T &sourc, const T &dest, double w);
+    bool removeVertex(const T &in);
+    bool addEdge(const T &sourc, const T &dest, Airlines w);
+    bool removeEdge(const T &sourc, const T &dest);
+    vector<Vertex<T> * > getVertexSet() const;
+    vector<T> dfs() const;
+    vector<T> dfs(const T & source) const;
+    vector<T> bfs(const T &source) const;
 };
 
+/****************** Provided constructors and functions ********************/
 
 template <class T>
 Vertex<T>::Vertex(T in): info(in) {}
 
 template <class T>
-Edge<T>::Edge(Vertex<T> *d, double w): dest(d), weight(w) {}
+Edge<T>::Edge(Vertex<T> *d, Airlines w): dest(d), weight(w) {}
 
 
 template <class T>
@@ -70,7 +85,7 @@ int Graph<T>::getNumVertex() const {
 }
 
 template <class T>
-const vector<Vertex<Airport> *> Graph<T>::getVertexSet() const {
+vector<Vertex<T> * > Graph<T>::getVertexSet() const {
     return vertexSet;
 }
 
@@ -105,7 +120,7 @@ void Edge<T>::setDest(Vertex<T> *d) {
 }
 
 template<class T>
-double Edge<T>::getWeight() const {
+const Airlines Edge<T>::getWeight() const {
     return weight;
 }
 
@@ -114,10 +129,13 @@ void Edge<T>::setWeight(double weight) {
     Edge::weight = weight;
 }
 
+/*
+ * Auxiliary function to find a vertex with a given content.
+ */
 template <class T>
 Vertex<T> * Graph<T>::findVertex(const T &in) const {
     for (auto v : vertexSet)
-        if (static_cast<const Airport>(v->info) == in)
+        if (v->info == in)
             return v;
     return NULL;
 }
@@ -142,6 +160,11 @@ void Vertex<T>::setAdj(const vector<Edge<T>> &adj) {
     Vertex::adj = adj;
 }
 
+
+/*
+ *  Adds a vertex with a given content or info (in) to a graph (this).
+ *  Returns true if successful, and false if a vertex with that content already exists.
+ */
 template <class T>
 bool Graph<T>::addVertex(const T &in) {
     if ( findVertex(in) != NULL)
@@ -151,14 +174,77 @@ bool Graph<T>::addVertex(const T &in) {
 }
 
 
+/*
+ * Adds an edge to a graph (this), given the contents of the source and
+ * destination vertices and the edge weight (w).
+ * Returns true if successful, and false if the source or destination vertex does not exist.
+ */
 template <class T>
-bool Graph<T>::addEdge(const T &sourc, const T &dest, double w) {
+bool Graph<T>::addEdge(const T &sourc, const T &dest, Airlines w) {
     auto v1 = findVertex(sourc);
     auto v2 = findVertex(dest);
     if (v1 == NULL || v2 == NULL)
         return false;
     v1->addEdge(v2,w);
     return true;
+}
+
+/*
+ * Auxiliary function to add an outgoing edge to a vertex (this),
+ * with a given destination vertex (d) and edge weight (w).
+ */
+template <class T>
+void Vertex<T>::addEdge(Vertex<T> *d, Airlines w) {
+    adj.push_back(Edge<T>(d, w));
+}
+
+
+/*
+ * Removes an edge from a graph (this).
+ * The edge is identified by the source (sourc) and destination (dest) contents.
+ * Returns true if successful, and false if such edge does not exist.
+ */
+template <class T>
+bool Graph<T>::removeEdge(const T &sourc, const T &dest) {
+    auto v1 = findVertex(sourc);
+    auto v2 = findVertex(dest);
+    if (v1 == NULL || v2 == NULL)
+        return false;
+    return v1->removeEdgeTo(v2);
+}
+
+/*
+ * Auxiliary function to remove an outgoing edge (with a given destination (d))
+ * from a vertex (this).
+ * Returns true if successful, and false if such edge does not exist.
+ */
+template <class T>
+bool Vertex<T>::removeEdgeTo(Vertex<T> *d) {
+    for (auto it = adj.begin(); it != adj.end(); it++)
+        if (it->dest  == d) {
+            adj.erase(it);
+            return true;
+        }
+    return false;
+}
+
+/*
+ *  Removes a vertex with a given content (in) from a graph (this), and
+ *  all outgoing and incoming edges.
+ *  Returns true if successful, and false if such vertex does not exist.
+ */
+template <class T>
+bool Graph<T>::removeVertex(const T &in) {
+    for (auto it = vertexSet.begin(); it != vertexSet.end(); it++)
+        if ((*it)->info  == in) {
+            auto v = *it;
+            vertexSet.erase(it);
+            for (auto u : vertexSet)
+                u->removeEdgeTo(v);
+            delete v;
+            return true;
+        }
+    return false;
 }
 
 #endif //AIRPORT_GRAPH_H

@@ -33,13 +33,13 @@ Coordinate Airport::getCoordinate(){
 }
 
 bool Airport::operator > (const Airport e) const {
-    return this->name > e.name;
+    return this->code > e.code;
 }
 
 bool Airport::operator < (const Airport e) const {
-    return this->name < e.name;
+    return this->code < e.code;
 }
 
 bool Airport::operator == (const Airport e) const {
-    return this->name == e.name;
+    return this->code == e.code;
 }
