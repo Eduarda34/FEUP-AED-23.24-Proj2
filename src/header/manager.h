@@ -8,7 +8,7 @@
 
 using namespace std;
 
-class manager {
+class Manager {
 private:
     Graph<Airport> airportsGraph; //Airports as Vertex
     vector<Airport> airports;

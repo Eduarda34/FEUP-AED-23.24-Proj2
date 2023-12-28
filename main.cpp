@@ -1,16 +1,13 @@
 #include <iostream>
 
 #include "src/header/manager.h"
+#include "src/header/menu.h"
 
 int main() {
-    manager myManager;
-    myManager.buildAirlines();
-    myManager.buildAirports();
-    myManager.buildFlights();
-    for (auto i : myManager.airportFromCountry("Portugal")){
-        cout << i << "\n";
-    }
-    cout << myManager.numberFlights();
-    return 0;
-
+    Manager manager = Manager();
+    manager.buildAirports();
+    manager.buildAirlines();
+    manager.buildFlights();
+    Menu menu = Menu(manager);
+    menu.startMenu();
 }

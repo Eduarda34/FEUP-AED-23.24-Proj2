@@ -9,7 +9,7 @@ using namespace std;
 
 //Reads the csv files and fills the list airports with the elements of the class airport
 //Time Complexity O(n), being n the number of lines of airports.csv
-void manager::buildAirports() {
+void Manager::buildAirports() {
     ifstream airportsData("../dataset/airports.csv");
     string line, code,name,city,country,latitude,longitude;
     getline(airportsData, line);
@@ -30,7 +30,7 @@ void manager::buildAirports() {
     sort(airports.begin(), airports.end());
 }
 
-void manager::buildAirlines() {
+void Manager::buildAirlines() {
     ifstream airportsData("../dataset/airlines.csv");
     string line, code,name,callsign,country;
     getline(airportsData, line);
@@ -46,7 +46,7 @@ void manager::buildAirlines() {
     sort(airlines.begin(), airlines.end());
 }
 
-void manager::buildFlights() {
+void Manager::buildFlights() {
     ifstream airportsData("../dataset/flights.csv");
     string line, source,target, airline;
     getline(airportsData, line);
@@ -63,7 +63,7 @@ void manager::buildFlights() {
 }
 
 
-Airport manager::findAirport(string code) {
+Airport Manager::findAirport(string code) {
     int left = 0;
     int right = airports.size() - 1;
 
@@ -80,7 +80,7 @@ Airport manager::findAirport(string code) {
         }
     }
 }
-Airlines manager::findAirlines(string code) {
+Airlines Manager::findAirlines(string code) {
     int left = 0;
     int right = airlines.size() - 1;
 
@@ -100,11 +100,11 @@ Airlines manager::findAirlines(string code) {
 
 
 
-Graph<Airport> manager::getAirports() {
+Graph<Airport> Manager::getAirports() {
     return airportsGraph;
 }
 
-list<string> manager::airportFromCountry(string country){
+list<string> Manager::airportFromCountry(string country){
     list<string> lista;
     for (auto b : airports) {
         if (b.getCountry() == country) {
@@ -113,10 +113,11 @@ list<string> manager::airportFromCountry(string country){
     }
 }
 
-int manager::numberAirports() {
+int Manager::numberAirports() {
     return airports.size();
 }
-int manager::numberFlights() {
+
+int Manager::numberFlights() {
     int count = 0;
     for (auto a : airports){
         count += airportsGraph.findVertex(a)->getAdj().size();

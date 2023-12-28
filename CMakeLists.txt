@@ -10,6 +10,8 @@ add_executable(airport
         src/coordinate.cpp
         src/airlines.cpp
         src/data.cpp
-        src/header/graph.h)
+        src/header/graph.h
+        src/header/menu.h
+        src/menu.cpp)
 
 
