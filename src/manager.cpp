@@ -60,7 +60,6 @@ void manager::buildFlights() {
         Airlines takenAirline = findAirlines(airline);
         airportsGraph.addEdge(sourceAirport, targetAirport, takenAirline);
     }
-    cout << "Acabou";
 }
 
 
@@ -105,5 +104,22 @@ Graph<Airport> manager::getAirports() {
     return airportsGraph;
 }
 
+list<string> manager::airportFromCountry(string country){
+    list<string> lista;
+    for (auto b : airports) {
+        if (b.getCountry() == country) {
+            cout << b.getName() << "\n";
+        }
+    }
+}
 
-
+int manager::numberAirports() {
+    return airports.size();
+}
+int manager::numberFlights() {
+    int count = 0;
+    for (auto a : airports){
+        count += airportsGraph.findVertex(a)->getAdj().size();
+    }
+    return count;
+}

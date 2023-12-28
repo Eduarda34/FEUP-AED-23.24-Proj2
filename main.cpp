@@ -7,8 +7,10 @@ int main() {
     myManager.buildAirlines();
     myManager.buildAirports();
     myManager.buildFlights();
-    Airport a = myManager.findAirport("CDG");
-
+    for (auto i : myManager.airportFromCountry("Portugal")){
+        cout << i << "\n";
+    }
+    cout << myManager.numberFlights();
     return 0;
 
 }

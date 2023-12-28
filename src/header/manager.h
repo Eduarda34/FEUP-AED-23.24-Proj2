@@ -20,6 +20,9 @@ public:
     Graph<Airport> getAirports();
     Airport findAirport(string name);
     Airlines findAirlines(string name);
+    list<string> airportFromCountry(string country);
+    int numberAirports();
+    int numberFlights();
 };
 
 #endif //PROJECT2_MANAGER_H
