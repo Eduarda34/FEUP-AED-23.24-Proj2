@@ -187,3 +187,24 @@ int Manager::getNumberOfAirlinesOutAnAirportByCode(string code) {
     }
     return airlines.size();
 }
+
+list<string> Manager::findCountries(list<Airport> airports){
+    //retorna uma lista de paises recebendo uma lista de airports
+    list<string> countries;
+    for (Airport airport : airports){
+        if (find(countries.begin(),countries.end(),airport.getCountry())!=countries.end()){
+            countries.push_back(airport.getCountry());
+        }
+    }
+    return countries;
+}
+
+int Manager::countriesFromAirport(string acode){
+    list<Airport> airports;
+    Airport a = findAirport(acode);
+    auto airport = airportsGraph.findVertex(a);
+    for (auto e: airport->getAdj()){
+        airports.push_back(e.getDest()->getInfo());
+    }
+    return findCountries(airports).size();
+}

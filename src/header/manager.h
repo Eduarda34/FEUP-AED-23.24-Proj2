@@ -29,6 +29,10 @@ public:
     int getNumberOfFlightsOutAnAirportByCode(string code);
     int getNumberOfAirlinesOutAnAirportByName(string name);
     int getNumberOfAirlinesOutAnAirportByCode(string code);
+
+    list<string> findCountries(list<Airport> airports);
+
+    int countriesFromAirport(string acode);
 };
 
 #endif //PROJECT2_MANAGER_H
