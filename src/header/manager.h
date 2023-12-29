@@ -44,7 +44,18 @@ public:
     set<string> countriesFromAirport(string acode);
     set<string> findCities(set<Airport> airports);
     set<Airport> airportDest(Airport airport);
+<<<<<<< HEAD
 >>>>>>> 3e60753 (3.5 and other things)
+=======
+
+    int numberOfFlightsPerAirlineName(string name);
+
+    int numberOfFlightsPerAirlineCode(string code);
+
+    int numberOfFlightsOutOfTheCity(string city);
+
+    int numberOfFlightIntoTheCity(string city);
+>>>>>>> 4525f2a (3.5 and fix)
 };
 
 #endif //PROJECT2_MANAGER_H

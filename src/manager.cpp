@@ -193,7 +193,10 @@ int Manager::getNumberOfAirlinesOutAnAirportByCode(string code) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4525f2a (3.5 and fix)
 
 int Manager::numberOfFlightsOutOfTheCity(string city) {
     int counter = 0;
@@ -242,9 +245,12 @@ int Manager::numberOfFlightsPerAirlineCode(string code) {
     }
     return count;
 }
+<<<<<<< HEAD
 
 list<string> Manager::findCountries(list<Airport> airports){
 =======
+=======
+>>>>>>> 4525f2a (3.5 and fix)
 set<string> Manager::findCountries(set<Airport> airports){
 >>>>>>> 3e60753 (3.5 and other things)
     //retorna uma lista de paises recebendo uma lista de airports
