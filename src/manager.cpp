@@ -187,3 +187,30 @@ int Manager::getNumberOfAirlinesOutAnAirportByCode(string code) {
     }
     return airlines.size();
 }
+
+
+int Manager::numberOfFlightsOutOfTheCity(string city) {
+    int counter = 0;
+    vector<Vertex<Airport>*> vertexes = airportsGraph.getVertexSet();
+    for (auto i : vertexes) {
+        if (i->getInfo().getCity() == city) {
+            i++;
+        }
+    }
+    return counter;
+}
+
+int Manager::numberOfFlightIntoTheCity(string city) {
+    int counter = 0;
+    vector<Vertex<Airport>*> vertexes = airportsGraph.getVertexSet();
+    for (auto i : vertexes) {
+        for (auto j : i->getAdj()) {
+            if (j.getDest()->getInfo().getCity() == city) {
+                i++;
+            }
+        }
+    }
+    return counter;
+}
+int numberOfFlightsPerAirlineName(string name);
+int numberOfFlightsPerAirlineCode(string code);

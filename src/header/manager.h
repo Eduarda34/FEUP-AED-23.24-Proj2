@@ -2,6 +2,7 @@
 #define PROJECT2_MANAGER_H
 
 #include <list>
+#include <set>
 #include "airport.h"
 #include "graph.h"
 #include "airlines.h"
@@ -13,6 +14,7 @@ private:
     Graph<Airport> airportsGraph; //Airports as Vertex
     vector<Airport> airports;
     vector<Airlines> airlines;
+    set<string> cities;
 public:
     void buildAirports();
     void buildAirlines();
@@ -29,6 +31,10 @@ public:
     int getNumberOfFlightsOutAnAirportByCode(string code);
     int getNumberOfAirlinesOutAnAirportByName(string name);
     int getNumberOfAirlinesOutAnAirportByCode(string code);
+    int numberOfFlightsOutOfTheCity(string city);
+    int numberOfFlightIntoTheCity(string city);
+    int numberOfFlightsPerAirlineName(string name);
+    int numberOfFlightsPerAirlineCode(string code);
 };
 
 #endif //PROJECT2_MANAGER_H
