@@ -64,6 +64,8 @@ void Manager::buildFlights() {
         Airport sourceAirport = findAirport(source);
         Airport targetAirport = findAirport(target);
         Airlines takenAirline = findAirlines(airline);
+        cities.insert(targetAirport.getCity());
+        cities.insert(sourceAirport.getCity());
         airportsGraph.addEdge(sourceAirport, targetAirport, takenAirline);
     }
 }
@@ -189,12 +191,14 @@ int Manager::getNumberOfAirlinesOutAnAirportByCode(string code) {
 }
 
 
+
 int Manager::numberOfFlightsOutOfTheCity(string city) {
     int counter = 0;
     vector<Vertex<Airport>*> vertexes = airportsGraph.getVertexSet();
     for (auto i : vertexes) {
-        if (i->getInfo().getCity() == city) {
-            i++;
+        string h = i->getInfo().getCity();
+        if (h == city) {
+            counter++;
         }
     }
     return counter;
@@ -205,12 +209,55 @@ int Manager::numberOfFlightIntoTheCity(string city) {
     vector<Vertex<Airport>*> vertexes = airportsGraph.getVertexSet();
     for (auto i : vertexes) {
         for (auto j : i->getAdj()) {
-            if (j.getDest()->getInfo().getCity() == city) {
-                i++;
+            string h = j.getDest()->getInfo().getCity();
+            if (h == city) {
+                counter++;
             }
         }
     }
     return counter;
 }
-int numberOfFlightsPerAirlineName(string name);
-int numberOfFlightsPerAirlineCode(string code);
+int Manager::numberOfFlightsPerAirlineName(string name) {
+    int count = 0;
+    for (auto i : airportsGraph.getVertexSet()) {
+        for (auto j : i->getAdj()) {
+            if (j.getDest()->getInfo().getName() == name) {
+                count++;
+            }
+        }
+    }
+    return count;
+}
+int Manager::numberOfFlightsPerAirlineCode(string code) {
+    int count = 0;
+    for (auto i : airportsGraph.getVertexSet()) {
+        for (auto j : i->getAdj()) {
+            if (j.getDest()->getInfo().getCode() == code) {
+                count++;
+            }
+        }
+    }
+    return count;
+}
+
+list<string> Manager::findCountries(list<Airport> airports){
+    //retorna uma lista de paises recebendo uma lista de airports
+    list<string> countries;
+    for (Airport airport : airports){
+        if (find(countries.begin(),countries.end(),airport.getCountry())!=countries.end()){
+            countries.push_back(airport.getCountry());
+        }
+    }
+    return countries;
+}
+
+int Manager::countriesFromAirport(string acode){
+    list<Airport> airports;
+    Airport a = findAirport(acode);
+    auto airport = airportsGraph.findVertex(a);
+    for (auto e: airport->getAdj()){
+        airports.push_back(e.getDest()->getInfo());
+    }
+    return findCountries(airports).size();
+}
+

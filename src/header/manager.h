@@ -35,6 +35,8 @@ public:
     int numberOfFlightIntoTheCity(string city);
     int numberOfFlightsPerAirlineName(string name);
     int numberOfFlightsPerAirlineCode(string code);
+    list<string> findCountries(list<Airport> airports);
+    int countriesFromAirport(string acode);
 };
 
 #endif //PROJECT2_MANAGER_H

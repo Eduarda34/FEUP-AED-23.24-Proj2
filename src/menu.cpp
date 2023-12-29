@@ -6,7 +6,8 @@ void Menu::startMenu() {
          << "What would you like to do?" << endl
          << endl
          << "1 Get number of airports/available flights" << endl
-         << "2 Get number of flights out of an airport" << endl;
+         << "2 Get number of flights out of an airport" << endl
+         << "3 Get number of flights from a city/airline" << endl;
 
     cin >> option;
 
@@ -16,6 +17,9 @@ void Menu::startMenu() {
             break;
         case 2:
             startOption2Menu();
+            break;
+        case 3:
+            startOption3Menu();
             break;
     }
 }
@@ -59,6 +63,44 @@ void Menu::startOption2Menu() {
             cout << "There are " << manager.getNumberOfAirlinesOutAnAirportByCode(input) << " flights from " << manager.getNumberOfAirlinesOutAnAirportByCode(input) << " airlines " << endl;
     }
 
+}
+
+void Menu::startOption3Menu() {
+    int option, option2;
+    string input;
+    cout << "Do you want to check the number of flights of a city or airline?" << endl
+         << "1 City" << endl
+         << "2 Airline" << endl;
+
+    cin >> option;
+
+    switch (option) {
+        case 1:
+            cout << "What is the name of the city?" << endl;
+            cin >> input;
+            cout << "Do you want to check the n umber of flights in/out or both ?" << endl
+                 << "1 In" << endl
+                 << "2 Out" << endl
+                 << "3 Both" << endl;
+
+            cin >> option2;
+            switch (option2) {
+                case 1:
+                    cout << manager.numberOfFlightIntoTheCity(input);
+                    break;
+                case 2:
+                    cout << manager.numberOfFlightsOutOfTheCity(input);
+                    break;
+                case 3:
+                    cout << manager.numberOfFlightsOutOfTheCity(input) + manager.numberOfFlightIntoTheCity(input);
+                    break;
+            }
+            break;
+        case 2:
+            cout << "Whats the code of the airline?" << endl;
+            cin >> input;
+            cout << manager.numberOfFlightsPerAirlineCode(input);
+    }
 }
 
 Menu::Menu(Manager manager) {
