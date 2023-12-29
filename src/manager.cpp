@@ -192,12 +192,6 @@ int Manager::getNumberOfAirlinesOutAnAirportByCode(string code) {
     return airlines.size();
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> 4525f2a (3.5 and fix)
-
 int Manager::numberOfFlightsOutOfTheCity(string city) {
     int counter = 0;
     vector<Vertex<Airport>*> vertexes = airportsGraph.getVertexSet();
@@ -245,14 +239,7 @@ int Manager::numberOfFlightsPerAirlineCode(string code) {
     }
     return count;
 }
-<<<<<<< HEAD
-
-list<string> Manager::findCountries(list<Airport> airports){
-=======
-=======
->>>>>>> 4525f2a (3.5 and fix)
 set<string> Manager::findCountries(set<Airport> airports){
->>>>>>> 3e60753 (3.5 and other things)
     //retorna uma lista de paises recebendo uma lista de airports
     set<string> countries;
     for (Airport airport : airports){

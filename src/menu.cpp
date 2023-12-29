@@ -6,22 +6,10 @@ void Menu::startMenu() {
          << "Welcome to our App" << endl
          << "What would you like to do?" << endl
          << endl
-<<<<<<< HEAD
-<<<<<<< HEAD
-         << "1 Get number of airports/available flights" << endl
-         << "2 Get number of flights out of an airport" << endl
-         << "3 Get number of flights from a city/airline" << endl;
-=======
          << "1 Get global number of airports/available flights" << endl
          << "2 See info about airport" << endl
-         << "(Press any key other than 1 or 2 to quit)" << endl;
->>>>>>> 3e60753 (3.5 and other things)
-=======
-         << "1 Get number of airports/available flights" << endl
-         << "2 See info about airport" << endl
-         << "3 Get number of flights from a city/airline" << endl
+         << "3 Check number of flights of city/airline "<< endl
          << "(Press any key other than 1, 2 or 3 to quit)" << endl;
->>>>>>> 4525f2a (3.5 and fix)
 
     cin >> option;
 
@@ -32,17 +20,9 @@ void Menu::startMenu() {
         case 2:
             startOption2Menu();
             break;
-<<<<<<< HEAD
-<<<<<<< HEAD
-        case 3:
-            startOption3Menu();
-=======
-=======
         case 3:
             startOption5Menu();
->>>>>>> 4525f2a (3.5 and fix)
         default:
->>>>>>> 3e60753 (3.5 and other things)
             break;
     }
 }
@@ -251,49 +231,6 @@ void Menu::startOption5Menu() {
     }
 }
 
-<<<<<<< HEAD
-void Menu::startOption3Menu() {
-    int option, option2;
-    string input;
-    cout << "Do you want to check the number of flights of a city or airline?" << endl
-         << "1 City" << endl
-         << "2 Airline" << endl;
-
-    cin >> option;
-
-    switch (option) {
-        case 1:
-            cout << "What is the name of the city?" << endl;
-            cin >> input;
-            cout << "Do you want to check the n umber of flights in/out or both ?" << endl
-                 << "1 In" << endl
-                 << "2 Out" << endl
-                 << "3 Both" << endl;
-
-            cin >> option2;
-            switch (option2) {
-                case 1:
-                    cout << manager.numberOfFlightIntoTheCity(input);
-                    break;
-                case 2:
-                    cout << manager.numberOfFlightsOutOfTheCity(input);
-                    break;
-                case 3:
-                    cout << manager.numberOfFlightsOutOfTheCity(input) + manager.numberOfFlightIntoTheCity(input);
-                    break;
-            }
-            break;
-        case 2:
-            cout << "Whats the code of the airline?" << endl;
-            cin >> input;
-            cout << manager.numberOfFlightsPerAirlineCode(input);
-    }
-}
-
 Menu::Menu(Manager manager) {
     this->manager = manager;
 }
-=======
-Menu::Menu(Manager manager) { this->manager = manager;
-}
->>>>>>> 4525f2a (3.5 and fix)
