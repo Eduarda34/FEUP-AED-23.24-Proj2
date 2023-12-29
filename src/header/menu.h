@@ -13,5 +13,6 @@ public:
     Menu(Manager manager);
     void startMenu();
     void startOption1Menu();
+    void startOption2Menu();
 };
 #endif //AIRPORT_MENU_H

@@ -4,6 +4,7 @@
 #include <sstream>
 #include <string>
 #include <algorithm>
+#include <set>
 
 using namespace std;
 
@@ -30,6 +31,8 @@ void Manager::buildAirports() {
     sort(airports.begin(), airports.end());
 }
 
+//Reads the csv files and fills the list airlines with the elements of the class airport
+//Time Complexity O(n), being n the number of lines of airlines.csv
 void Manager::buildAirlines() {
     ifstream airportsData("../dataset/airlines.csv");
     string line, code,name,callsign,country;
@@ -46,6 +49,9 @@ void Manager::buildAirlines() {
     sort(airlines.begin(), airlines.end());
 }
 
+
+//Reads the flights.csv files and fills the graph
+//Time Complexity O(n * 2 log(h) * log(y)), being n the number of lines of flights.csv, h the size of the list of airports and y the size of the list of airlines
 void Manager::buildFlights() {
     ifstream airportsData("../dataset/flights.csv");
     string line, source,target, airline;
@@ -123,4 +129,61 @@ int Manager::numberFlights() {
         count += airportsGraph.findVertex(a)->getAdj().size();
     }
     return count;
+}
+
+//Search the graph fpr the right vertex and then returns the flights
+// Time complexity O(n) being n the size of the graph vertex set
+vector<Edge<Airport>> Manager::getFlightsOutAnAirportByName(string name) {
+    for (auto i : airportsGraph.getVertexSet()) {
+        if (i->getInfo().getName() == name) {
+            return i->getAdj();
+        }
+    }
+    return vector<Edge<Airport>>();
+}
+
+//Search the graph fpr the right vertex and then returns the flights
+// Time complexity O(n) being n the size of the graph vertex set
+vector<Edge<Airport>> Manager::getFlightsOutAnAirportByCode(string code) {
+    for (auto i : airportsGraph.getVertexSet()) {
+        if (i->getInfo().getCode() == code) {
+            return i->getAdj();
+        }
+    }
+    return vector<Edge<Airport>>();
+}
+
+//Returns the number of flights
+// Time complexity O(n) being n the size of the graph vertex set
+int Manager::getNumberOfFlightsOutAnAirportByName(string name) {
+    return getFlightsOutAnAirportByName(name).size();
+}
+
+
+//Returns the number of flights
+// Time complexity O(n) being n the size of the graph vertex set
+int Manager::getNumberOfFlightsOutAnAirportByCode(string code) {
+    return getFlightsOutAnAirportByCode(code).size();
+}
+
+//Returns the number of airlines
+// Time complexity O(n) being n the size of the graph vertex set
+int Manager::getNumberOfAirlinesOutAnAirportByName(string name) {
+    set<Airlines> airlines;
+    vector<Edge<Airport>> flights = getFlightsOutAnAirportByName(name);
+    for (auto i: flights) {
+        airlines.insert(i.getWeight());
+    }
+    return airlines.size();
+}
+
+//Returns the number of airlines
+// Time complexity O(n) being n the size of the graph vertex set
+int Manager::getNumberOfAirlinesOutAnAirportByCode(string code) {
+    set<Airlines> airlines;
+    vector<Edge<Airport>> flights = getFlightsOutAnAirportByCode(code);
+    for (auto i: flights) {
+        airlines.insert(i.getWeight());
+    }
+    return airlines.size();
 }
