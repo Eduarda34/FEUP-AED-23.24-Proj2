@@ -40,6 +40,10 @@ public:
     set<string> countriesFromAirport(string acode);
     set<string> findCities(set<Airport> airports);
     set<Airport> airportDest(Airport airport);
+    set<Airport> reachableAirports(string code, int n);
+    set<Airport> findReachableAirports(int n, set<Airport> a);
+    set<string> reachableCities(string code, int n);
+    set<string> reachableCountries(string code, int n);
 };
 
 #endif //PROJECT2_MANAGER_H

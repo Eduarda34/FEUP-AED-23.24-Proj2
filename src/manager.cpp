@@ -289,3 +289,33 @@ Airport Manager::findAirportByName(string name) {
     }
 }
 
+set<Airport> Manager::reachableAirports(string code, int n) {
+    set<Airport> y;
+    Airport air = findAirport(code);
+    for(auto j : airportsGraph.findVertex(air)->getAdj()) {
+        y.insert(j.getDest()->getInfo());
+    }
+    return findReachableAirports(n, y);
+}
+
+set<Airport> Manager::findReachableAirports(int n, set<Airport> a) {
+    vector<Airport> toAdd;
+    if (n == 0) {
+        return a;
+    }
+    else {
+        for (auto i : a) {
+            for(auto j : airportsGraph.findVertex(i)->getAdj()) {
+                toAdd.push_back(j.getDest()->getInfo());
+            }
+        }
+        for (auto y : toAdd) {
+            a.insert(y);
+        }
+        return findReachableAirports(n-1, a);
+    }
+}
+
+set<string> reachableCities(string code);
+set<string> reachableCountries(string code);
+
