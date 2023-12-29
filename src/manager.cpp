@@ -113,12 +113,14 @@ Graph<Airport> Manager::getAirports() {
 }
 
 list<string> Manager::airportFromCountry(string country){
+    //retorna os aeroportos de um pais
     list<string> lista;
     for (auto b : airports) {
         if (b.getCountry() == country) {
-            cout << b.getName() << "\n";
+            lista.push_back(b.getName());
         }
     }
+    return lista;
 }
 
 int Manager::numberAirports() {
@@ -190,6 +192,7 @@ int Manager::getNumberOfAirlinesOutAnAirportByCode(string code) {
     return airlines.size();
 }
 
+<<<<<<< HEAD
 
 
 int Manager::numberOfFlightsOutOfTheCity(string city) {
@@ -241,23 +244,55 @@ int Manager::numberOfFlightsPerAirlineCode(string code) {
 }
 
 list<string> Manager::findCountries(list<Airport> airports){
+=======
+set<string> Manager::findCountries(set<Airport> airports){
+>>>>>>> 3e60753 (3.5 and other things)
     //retorna uma lista de paises recebendo uma lista de airports
-    list<string> countries;
+    set<string> countries;
     for (Airport airport : airports){
-        if (find(countries.begin(),countries.end(),airport.getCountry())!=countries.end()){
-            countries.push_back(airport.getCountry());
+        if (find(countries.begin(),countries.end(),airport.getCountry())==countries.end()){
+            countries.insert(airport.getCountry());
         }
     }
     return countries;
 }
 
-int Manager::countriesFromAirport(string acode){
-    list<Airport> airports;
+set<string> Manager::findCities(set<Airport> airports){
+    //retorna uma lista de cidades recebendo uma lista de airports
+    set<string> cities;
+    for (Airport airport : airports){
+        if (find(cities.begin(),cities.end(),airport.getCity())==cities.end()){
+            cities.insert(airport.getCity());
+        }
+    }
+    return cities;
+
+}
+
+set<string> Manager::countriesFromAirport(string acode){
+    set<Airport> airports;
     Airport a = findAirport(acode);
     auto airport = airportsGraph.findVertex(a);
     for (auto e: airport->getAdj()){
-        airports.push_back(e.getDest()->getInfo());
+        airports.insert(e.getDest()->getInfo());
     }
-    return findCountries(airports).size();
+    return findCountries(airports);
+}
+
+set<Airport> Manager::airportDest(Airport airport){
+    set<Airport> set;
+    auto a = airportsGraph.findVertex(airport);
+    for (auto e : a->getAdj()){
+        set.insert(e.getDest()->getInfo());
+    }
+    return set;
+}
+
+Airport Manager::findAirportByName(string name) {
+    for (auto a : airports){
+        if (a.getName() == name){
+            return a;
+        }
+    }
 }
 

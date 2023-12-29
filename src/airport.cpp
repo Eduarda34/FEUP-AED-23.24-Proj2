@@ -12,6 +12,14 @@ Airport::Airport(string code, string name, string city, string country, double l
     this->coordinate = Coordinate(lati, longi);
 }
 
+Airport::Airport() {
+    this->code = "";
+    this->name = "";
+    this->city = "";
+    this->country = "";
+    this->coordinate = Coordinate(0, 0);
+}
+
 string Airport::getCode(){
     return this->code;
 }

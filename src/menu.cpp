@@ -2,12 +2,19 @@
 
 void Menu::startMenu() {
     int option;
-    cout << "Welcome to our App" << endl
+    cout << endl
+         << "Welcome to our App" << endl
          << "What would you like to do?" << endl
          << endl
+<<<<<<< HEAD
          << "1 Get number of airports/available flights" << endl
          << "2 Get number of flights out of an airport" << endl
          << "3 Get number of flights from a city/airline" << endl;
+=======
+         << "1 Get global number of airports/available flights" << endl
+         << "2 See info about airport" << endl
+         << "(Press any key other than 1 or 2 to quit)" << endl;
+>>>>>>> 3e60753 (3.5 and other things)
 
     cin >> option;
 
@@ -18,8 +25,12 @@ void Menu::startMenu() {
         case 2:
             startOption2Menu();
             break;
+<<<<<<< HEAD
         case 3:
             startOption3Menu();
+=======
+        default:
+>>>>>>> 3e60753 (3.5 and other things)
             break;
     }
 }
@@ -36,9 +47,14 @@ void Menu::startOption1Menu() {
     switch (option) {
         case 1:
             cout << manager.numberAirports();
+            startMenu();
             break;
         case 2:
             cout << manager.numberFlights();
+            startMenu();
+            break;
+        default:
+            startMenu();
             break;
     }
 }
@@ -46,6 +62,7 @@ void Menu::startOption1Menu() {
 void Menu::startOption2Menu() {
     int option;
     string input;
+    Airport a = Airport();
     cout << "You want to insert the name or code of the Airport?" << endl
          << "1 Name" << endl
          << "2 Code" << endl;
@@ -56,11 +73,127 @@ void Menu::startOption2Menu() {
         case 1:
             cout << "insert the name of the airport" << endl;
             cin >> input;
-            cout << "There are " << manager.getNumberOfAirlinesOutAnAirportByName(input) << " flights from " << manager.getNumberOfAirlinesOutAnAirportByName(input) << " airlines" << endl;
+            a = manager.findAirportByName(input);
+            startOption3Menu(a);
+            break;
         case 2:
             cout << "insert the code of the airport" << endl;
             cin >> input;
-            cout << "There are " << manager.getNumberOfAirlinesOutAnAirportByCode(input) << " flights from " << manager.getNumberOfAirlinesOutAnAirportByCode(input) << " airlines " << endl;
+            a = manager.findAirport(input);
+            startOption3Menu(a);
+            break;
+        default:
+            startMenu();
+            break;
+    }
+
+}
+
+void Menu::startOption3Menu(Airport a){
+    int option;
+    string input;
+    cout << "What would you like to do ?" << endl
+    << endl
+    << "1 Get number of flights out of airport" << endl
+    << "2 Get number of airlines that do flights out of airport" << endl
+    << "3 Get number of destinations out of airport in 1 flight" << endl
+    << "4 Get number of destinations out of airport in x flights" << endl;
+
+    cin >> option;
+
+    switch (option) {
+        case 1:
+            cout << manager.getNumberOfFlightsOutAnAirportByCode(a.getCode());
+            break;
+        case 2:
+            cout << manager.getNumberOfAirlinesOutAnAirportByCode(a.getCode());
+            break;
+        case 3:
+            cout << "Do you want the destinations in :" << endl
+            << "1 Airports" << endl
+            << "2 Countries" << endl
+            << "3 Cities" << endl;
+
+            cin >> option;
+
+            switch (option) {
+                case 1:
+                    cout << "There are " << manager.airportDest(a).size() << " airports" << endl
+                    << "Do you wish to see the name of the airports ?" << endl
+                    << "1 Yes" << endl
+                    << "2 No" << endl;
+
+                    cin >> option;
+
+                    switch (option){
+                        case 1:
+                            for (auto a1 : manager.airportDest(a)){
+                                cout << a1.getName() << endl;
+                            }
+                            startMenu();
+                            break;
+                        case 2:
+                            startMenu();
+                            break;
+                        default:
+                            startMenu();
+                            break;
+                    }
+                    break;
+                    case 2:
+                        cout << "There are " << manager.findCountries(manager.airportDest(a)).size() << " countries "<< endl
+                             << "Do you wish to see the name of the countries ?" << endl
+                             << "1 Yes" << endl
+                             << "2 No" << endl;
+
+                    cin >> option;
+
+                    switch (option){
+                        case 1:
+                            for (auto a1 : manager.findCountries(manager.airportDest(a))){
+                                cout << a1 << endl;
+                            }
+                            startMenu();
+                            break;
+                        case 2:
+                            startMenu();
+                            break;
+                        default:
+                            startMenu();
+                            break;
+                    }
+                    case 3:
+                        cout << "There are " << manager.findCities(manager.airportDest(a)).size() << " cities" << endl
+                             << "Do you wish to see the name of the cities ?" << endl
+                             << "1 Yes" << endl
+                             << "2 No" << endl;
+
+                    cin >> option;
+
+                    switch (option){
+                        case 1:
+                            for (auto a1 : manager.findCities(manager.airportDest(a))){
+                                cout << a1 << endl;
+                            }
+                            startMenu();
+                            break;
+                        case 2:
+                            startMenu();
+                            break;
+                        default:
+                            startMenu();
+                            break;
+                    }
+                    break;
+                default:
+                    startMenu();
+                    break;
+
+            }
+            break;
+        default:
+            startMenu();
+            break;
     }
 
 }

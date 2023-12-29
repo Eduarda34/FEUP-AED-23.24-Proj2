@@ -20,7 +20,8 @@ public:
     void buildAirlines();
     void buildFlights();
     Graph<Airport> getAirports();
-    Airport findAirport(string name);
+    Airport findAirport(string code);
+    Airport findAirportByName(string name);
     Airlines findAirlines(string name);
     list<string> airportFromCountry(string country);
     int numberAirports();
@@ -31,12 +32,19 @@ public:
     int getNumberOfFlightsOutAnAirportByCode(string code);
     int getNumberOfAirlinesOutAnAirportByName(string name);
     int getNumberOfAirlinesOutAnAirportByCode(string code);
+<<<<<<< HEAD
     int numberOfFlightsOutOfTheCity(string city);
     int numberOfFlightIntoTheCity(string city);
     int numberOfFlightsPerAirlineName(string name);
     int numberOfFlightsPerAirlineCode(string code);
     list<string> findCountries(list<Airport> airports);
     int countriesFromAirport(string acode);
+=======
+    set<string> findCountries(set<Airport> airports);
+    set<string> countriesFromAirport(string acode);
+    set<string> findCities(set<Airport> airports);
+    set<Airport> airportDest(Airport airport);
+>>>>>>> 3e60753 (3.5 and other things)
 };
 
 #endif //PROJECT2_MANAGER_H

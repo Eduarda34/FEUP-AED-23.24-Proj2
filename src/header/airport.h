@@ -18,6 +18,7 @@ private:
 
 public:
     Airport(string code, string name, string city, string country, double lati, double longi);
+    Airport();
     string getCode();
     string getName();
     string getCity();
