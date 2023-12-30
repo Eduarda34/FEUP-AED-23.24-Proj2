@@ -12,6 +12,7 @@ using namespace std;
 class Manager {
 private:
     Graph<Airport> airportsGraph; //Airports as Vertex
+    Graph<Airport> airportsUndirectedGraph;
     vector<Airport> airports;
     vector<Airlines> airlines;
     set<string> cities;

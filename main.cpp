@@ -9,6 +9,6 @@ int main() {
     manager.buildAirlines();
     manager.buildFlights();
     Menu menu = Menu(manager);
-    cout << manager.reachableAirports("CDG", 100).size();
+    cout << manager.reachableAirports("DIJ", 1).size();
     menu.startMenu();
 }

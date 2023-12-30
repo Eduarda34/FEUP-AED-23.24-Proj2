@@ -27,6 +27,7 @@ void Manager::buildAirports() {
         Airport airport = Airport(code, name, city, country, fLatitude, fLongitude);
         airports.push_back(airport);
         airportsGraph.addVertex(airport);
+        airportsUndirectedGraph.addVertex(airport);
     }
     sort(airports.begin(), airports.end());
 }
@@ -67,6 +68,8 @@ void Manager::buildFlights() {
         cities.insert(targetAirport.getCity());
         cities.insert(sourceAirport.getCity());
         airportsGraph.addEdge(sourceAirport, targetAirport, takenAirline);
+        airportsUndirectedGraph.addEdge(sourceAirport, targetAirport, takenAirline);
+        airportsUndirectedGraph.addEdge(targetAirport, sourceAirport, takenAirline);
     }
 }
 
