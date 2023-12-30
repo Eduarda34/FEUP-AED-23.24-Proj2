@@ -68,6 +68,9 @@ public:
     vector<T> dfs() const;
     vector<T> dfs(const T & source) const;
     vector<T> bfs(const T &source) const;
+    vector<pair<Vertex<T> *, int>> newBfs(const T &source) const;
+
+    int newBfs(const T &source, const T &dest) const;
 };
 
 
@@ -92,6 +95,38 @@ void Graph<T>::dfsVisit(Vertex<T> *v, vector<T> & res) const {
     }
 }
 
+
+/****************** BFS ********************/
+/*
+ * Performs a breadth-first search (bfs) in a graph (this), starting
+ * from the vertex with the given source contents (source).
+ * Returns a vector with the contents of the vertices by bfs order.
+ */
+template <class T>
+int Graph<T>::newBfs(const T & source, const T & dest) const {
+    int stops = 0;
+    vector<pair<Vertex<T> *, int>> res;
+    auto s = findVertex(source);
+    auto d = findVertex(dest);
+    queue<Vertex<T> *> q;
+    for (auto v : vertexSet)
+        v->visited = false;
+    q.push(s);
+    s->visited = true;
+    while (!q.empty()) {
+        auto v = q.front();
+        q.pop();
+        if (v == d) return stops;
+        stops++;
+        for (auto & e : v->adj) {
+            auto w = e.dest;
+            if ( ! w->visited ) {
+                q.push(w);
+                w->visited = true;
+            }
+        }
+    }
+}
 
 
 /****************** Provided constructors and functions ********************/

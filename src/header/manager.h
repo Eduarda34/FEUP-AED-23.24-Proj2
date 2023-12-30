@@ -45,6 +45,7 @@ public:
     set<Airport> findReachableAirports(int n, set<Airport> a);
     set<string> reachableCities(string code, int n);
     set<string> reachableCountries(string code, int n);
+    pair<Airport,Airport> bestFLight(set<Airport> a1, set<Airport> a2);
 };
 
 #endif //PROJECT2_MANAGER_H

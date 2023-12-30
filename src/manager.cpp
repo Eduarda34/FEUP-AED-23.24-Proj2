@@ -5,6 +5,7 @@
 #include <string>
 #include <algorithm>
 #include <set>
+#include <cmath>
 
 using namespace std;
 
@@ -318,6 +319,18 @@ set<Airport> Manager::findReachableAirports(int n, set<Airport> a) {
         return findReachableAirports(n-1, a);
     }
 }
+
+pair<Airport, Airport> Manager::bestFLight(set<Airport> a1, set<Airport> a2) {
+    int stops = INT32_MAX;
+    for (auto a : a1){
+        for (auto b : a2){
+            airportsGraph.newBfs(a, b);
+        }
+    }
+    return pair<Airport, Airport>();
+}
+
+
 
 set<string> reachableCities(string code);
 set<string> reachableCountries(string code);

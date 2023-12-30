@@ -25,3 +25,12 @@ void Coordinate::setLati(double lati){
 void Coordinate::setLongi(double longi){
     this->longi = longi;
 }
+
+Coordinate Coordinate::closest(set<Coordinate> c) {
+    Coordinate cor = Coordinate();
+    double distance = MAXFLOAT;
+    for (auto coor : c){
+        if (((this->lati - coor.getLati())*(this->lati - coor.getLati()) + ((this->lati - coor.getLati())*(this->lati - coor.getLati()))) < distance) cor = coor;
+    }
+    return cor;
+}

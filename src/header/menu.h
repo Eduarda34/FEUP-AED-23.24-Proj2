@@ -17,5 +17,6 @@ public:
     void startOption4Menu();
     void startOption3Menu(Airport a);
     void startOption5Menu();
+    void startOption6Menu(set<Airport> airports);
 };
 #endif //AIRPORT_MENU_H

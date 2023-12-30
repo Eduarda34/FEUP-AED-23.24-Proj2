@@ -9,7 +9,8 @@ void Menu::startMenu() {
          << "1 Get global number of airports/available flights" << endl
          << "2 See info about airport" << endl
          << "3 Check number of flights of city/airline "<< endl
-         << "(Press any key other than 1, 2 or 3 to quit)" << endl;
+         << "4 See best flight option" << endl
+         << "(Press any key other to quit)" << endl;
 
     cin >> option;
 
@@ -22,6 +23,8 @@ void Menu::startMenu() {
             break;
         case 3:
             startOption5Menu();
+        case 4:
+            startOption4Menu();
         default:
             break;
     }
@@ -96,9 +99,13 @@ void Menu::startOption3Menu(Airport a) {
     switch (option) {
         case 1:
             cout << manager.getNumberOfFlightsOutAnAirportByCode(a.getCode());
+            cout << endl <<"End" << endl;
+            startMenu();
             break;
         case 2:
             cout << manager.getNumberOfAirlinesOutAnAirportByCode(a.getCode());
+            cout << endl <<"End" << endl;
+            startMenu();
             break;
         case 3:
             cout << "Do you want the destinations in :" << endl
@@ -122,12 +129,11 @@ void Menu::startOption3Menu(Airport a) {
                             for (auto a1: manager.airportDest(a)) {
                                 cout << a1.getName() << endl;
                             }
-                            startMenu();
-                            break;
-                        case 2:
+                            cout << endl <<"End" << endl;
                             startMenu();
                             break;
                         default:
+                            cout << endl <<"End" << endl;
                             startMenu();
                             break;
                     }
@@ -148,10 +154,8 @@ void Menu::startOption3Menu(Airport a) {
                             }
                             startMenu();
                             break;
-                        case 2:
-                            startMenu();
-                            break;
                         default:
+                            cout << "End" << endl;
                             startMenu();
                             break;
                     }
@@ -170,10 +174,8 @@ void Menu::startOption3Menu(Airport a) {
                             }
                             startMenu();
                             break;
-                        case 2:
-                            startMenu();
-                            break;
                         default:
+                            cout << "End" << endl;
                             startMenu();
                             break;
                     }
@@ -195,7 +197,7 @@ void Menu::startOption5Menu() {
         case 1:
             cout << "What is the name of the city?" << endl;
             cin >> input;
-            cout << "Do you want to check the n umber of flights in/out or both ?" << endl
+            cout << "Do you want to check the number of flights in/out or both ?" << endl
                  << "1 In" << endl
                  << "2 Out" << endl
                  << "3 Both" << endl;
@@ -230,6 +232,61 @@ void Menu::startOption5Menu() {
             break;
     }
 }
+
+void Menu::startOption4Menu() {
+    int option;
+    string input;
+    cout << "Insert the option you want for the source" << endl
+         << "1 City" << endl
+         << "2 Airport" << endl
+         << "3 Coordinates" << endl;
+
+    cin >> option;
+    switch (option) {
+        case 1:
+
+        case 2:
+            cout << manager.numberOfFlightsOutOfTheCity(input);
+            startMenu();
+            break;
+        case 3:
+            cout << manager.numberOfFlightsOutOfTheCity(input) + manager.numberOfFlightIntoTheCity(input);
+            startMenu();
+            break;
+        default:
+            startMenu();
+            break;
+    }
+}
+
+    void Menu::startOption6Menu(set<Airport> airports) {
+        int option;
+        string input;
+        cout << "Insert the option you want for the source" << endl
+             << "1 City" << endl
+             << "2 Airport" << endl
+             << "3 Coordinates" << endl;
+
+        cin >> option;
+        switch (option) {
+            case 1:
+
+            case 2:
+                cout << manager.numberOfFlightsOutOfTheCity(input);
+                startMenu();
+                break;
+            case 3:
+                cout << manager.numberOfFlightsOutOfTheCity(input) + manager.numberOfFlightIntoTheCity(input);
+                startMenu();
+                break;
+            default:
+                startMenu();
+                break;
+        }
+    }
+
+
+
 
 Menu::Menu(Manager manager) {
     this->manager = manager;
