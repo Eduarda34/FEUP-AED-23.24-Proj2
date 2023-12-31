@@ -413,3 +413,22 @@ set<Airport> Manager::findArticulationPoints() {
     return articulationPoints;
 }
 
+pair<vector<pair<Airport, Airport>>, int> Manager::longestTrips() {
+    pair<vector<pair<Airport, Airport>>, int> longestTripsSoFar;
+    longestTripsSoFar.second = 0;
+    for( auto i : airportsGraph.getVertexSet()) {
+       for(auto k : airportsGraph.LongestBfs(i->getInfo())) {
+           if (k.second > longestTripsSoFar.second) {
+               vector<pair<Airport, Airport>> a;
+               a.push_back(pair<Airport,Airport>(i->getInfo(),k.first->getInfo()));
+               longestTripsSoFar.first = a;
+               longestTripsSoFar.second = k.second;
+           }
+           else if(k.second == longestTripsSoFar.second) {
+               longestTripsSoFar.first.push_back(pair<Airport, Airport>(i->getInfo(), k.first->getInfo()));
+           }
+       }
+    }
+    return longestTripsSoFar;
+}
+

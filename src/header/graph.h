@@ -68,8 +68,7 @@ public:
     vector<T> dfs() const;
     vector<T> dfs(const T & source) const;
     vector<T> bfs(const T &source) const;
-    vector<pair<Vertex<T> *, int>> newBfs(const T &source) const;
-
+    vector<pair<Vertex<T> *, int>> LongestBfs( T source);
     int newBfs(const T &source, const T &dest) const;
 };
 
@@ -103,6 +102,31 @@ void Graph<T>::dfsVisit(Vertex<T> *v, vector<T> & res) const {
  * Returns a vector with the contents of the vertices by bfs order.
  */
 template <class T>
+vector<pair<Vertex<T> *, int>> Graph<T>::LongestBfs( T source)  {
+    vector<pair<Vertex<T> *, int>> res;
+    auto s = findVertex(source);
+    queue<pair<Vertex<T> *, int>> q;
+    for (auto f : vertexSet)
+        f->visited = false;
+    q.push({s,0});
+    s->visited = true;
+    while (!q.empty()) {
+        auto v = q.front();
+        for (auto & e : v.first->adj) {
+            auto w = e.dest;
+            if ( ! w->visited ) {
+                q.push({w, v.second + 1});
+                w->visited = true;
+            }
+        }
+        res.push_back(q.front());
+        q.pop();
+    }
+    return  res;
+}
+
+
+template <class T>
 int Graph<T>::newBfs(const T & source, const T & dest) const {
     vector<pair<Vertex<T> *, int>> res;
     auto s = findVertex(source);
@@ -124,7 +148,6 @@ int Graph<T>::newBfs(const T & source, const T & dest) const {
         }
     }
 }
-
 
 /****************** Provided constructors and functions ********************/
 

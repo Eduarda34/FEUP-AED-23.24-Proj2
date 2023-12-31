@@ -52,8 +52,8 @@ public:
     vector<pair<Airport, int>> getTraffic();
     void dfsArticulationPoints(Vertex<Airport>* v, Vertex<Airport>* parent, set<Airport>& articulationPoints, map<Airport, int>& disc, map<Airport, int>& low);
     set<Airport> findArticulationPoints();
-
     set<Airport> findAirportsByCity(string city);
+    pair<vector<pair<Airport, Airport>>, int> longestTrips();
 };
 
 #endif //PROJECT2_MANAGER_H
