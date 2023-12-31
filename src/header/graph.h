@@ -69,7 +69,7 @@ public:
     vector<T> dfs(const T & source) const;
     vector<T> bfs(const T &source) const;
     vector<pair<Vertex<T> *, int>> LongestBfs( T source);
-    int newBfs(const T &source, const T &dest) const;
+    vector<Airport> newBfs(const T &source, const T &dest) const;
 };
 
 
@@ -127,22 +127,26 @@ vector<pair<Vertex<T> *, int>> Graph<T>::LongestBfs( T source)  {
 
 
 template <class T>
-int Graph<T>::newBfs(const T & source, const T & dest) const {
-    vector<pair<Vertex<T> *, int>> res;
+vector<Airport> Graph<T>::newBfs(const T & source, const T & dest) const {
     auto s = findVertex(source);
     auto d = findVertex(dest);
-    queue<pair<Vertex<T> *, int>> q;
+    queue<pair<Vertex<T> *, vector<Airport>>> q;
     for (auto f : vertexSet)
         f->visited = false;
-    q.push({s,0});
+    vector<Airport> res;
+    q.push({s,res});
     s->visited = true;
     while (!q.empty()) {
         auto v = q.front();
-        if (v.first == d) return v.second;
+        q.pop();
+        v.second.push_back(v.first->info);
+        if (v.first == d) {
+            return v.second;
+        }
         for (auto & e : v.first->adj) {
             auto w = e.dest;
             if ( ! w->visited ) {
-                q.push({w, v.second + 1});
+                q.push({w, v.second});
                 w->visited = true;
             }
         }

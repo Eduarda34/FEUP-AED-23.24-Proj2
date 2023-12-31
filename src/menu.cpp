@@ -1,3 +1,4 @@
+#include <limits>
 #include "header/menu.h"
 
 void Menu::startMenu() {
@@ -248,17 +249,15 @@ void Menu::startOption4Menu() {
         case 1:
             cout << "Insert the name of the city" << endl;
             cin >> input;
-            for (auto a : manager.findAirportsByCity(input)) {
+            for (auto a: manager.findAirportsByCity(input)) {
                 airports.insert(a);
             }
             startOption6Menu(airports);
-            break;
         case 2:
             cout << "Insert the code of the airport" << endl;
             cin >> input;
             airports.insert(manager.findAirport(input));
             startOption6Menu(airports);
-            break;
         case 3:
             double t;
             double g;
@@ -269,16 +268,14 @@ void Menu::startOption4Menu() {
             for (auto a : manager.getAirports()){
                 coordinates.push_back(a.getCoordinate());
             }
-            vector<Coordinate> cords = c.closest(coordinates);
-            for (auto a : airports){
-                for (auto cr : coordinates){
-                    if (a.getCoordinate() == cr){
+            Coordinate cords = c.closest(coordinates);
+            for (auto a : manager.getAirports()){
+                    if (a.getCoordinate() == cords){
                         airports.insert(a);
                     }
                 }
-            }
+
             startOption6Menu(airports);
-            break;
     }
 }
 
@@ -287,6 +284,7 @@ void Menu::startOption4Menu() {
         vector<Coordinate> coordinates;
         int option;
         string input;
+        int flag = 0;
         cout << "Insert the option you want for the destination" << endl
              << "1 City" << endl
              << "2 Airport" << endl
@@ -297,20 +295,35 @@ void Menu::startOption4Menu() {
             case 1:
                 cout << "Insert the name of the city" << endl;
                 cin >> input;
-                for (auto a : manager.findAirportsByCity(input)) {
+                for (auto a: manager.findAirportsByCity(input)) {
                     airports2.insert(a);
                 }
-                cout << manager.bestFLight(airports, airports2).first.first.getName() << " to "
-                     << manager.bestFLight(airports, airports2).first.second.getName() << " with "
-                     << manager.bestFLight(airports, airports2).second << " flights" << endl;
+                for (auto a: manager.bestFLight(airports, airports2)) {
+                    if (flag == 0) {
+                        cout << a.getName();
+                        flag = 1;
+                    } else {
+                        cout << " -> " << a.getName();
+                    }
+                }
+                cout << endl << "with " << manager.bestFLight(airports, airports2).size() - 1 << " flights" << endl;
+                startMenu();
                 break;
             case 2:
                 cout << "Insert the code of the airport" << endl;
                 cin >> input;
                 airports2.insert(manager.findAirport(input));
-                cout << manager.bestFLight(airports, airports2).first.first.getName() << " to "
-                     << manager.bestFLight(airports, airports2).first.second.getName() << " with "
-                     << manager.bestFLight(airports, airports2).second << " flights" << endl;
+                for (auto a: manager.bestFLight(airports, airports2)) {
+                    if (flag == 0) {
+                        cout << a.getName();
+                        flag = 1;
+                    } else {
+                        cout << " -> " << a.getName();
+                    }
+                }
+                cout << endl << "with " << manager.bestFLight(airports, airports2).size() - 1 << " flights" << endl;
+
+                startMenu();
                 break;
             case 3:
                 double t;
@@ -319,20 +332,27 @@ void Menu::startOption4Menu() {
                 cin >> t;
                 cin >> g;
                 Coordinate c = Coordinate(t, g);
-                for (auto a : manager.getAirports()){
+                for (auto a: manager.getAirports()) {
                     coordinates.push_back(a.getCoordinate());
                 }
-                vector<Coordinate> cords = c.closest(coordinates);
-                for (auto a : airports){
-                    for (auto cr : coordinates){
-                        if (a.getCoordinate() == cr){
-                            airports2.insert(a);
-                        }
+                Coordinate cords = c.closest(coordinates);
+                for (auto a: manager.getAirports()) {
+                    if (a.getCoordinate() == cords) {
+                        airports2.insert(a);
                     }
                 }
-                cout << manager.bestFLight(airports, airports2).first.first.getName() << " to "
-                     << manager.bestFLight(airports, airports2).first.second.getName() << " with "
-                     << manager.bestFLight(airports, airports2).second << " flights" << endl;
+
+                for (auto a: manager.bestFLight(airports, airports2)) {
+                    if (flag == 0) {
+                        cout << a.getName();
+                        flag = 1;
+                    } else {
+                        cout << " -> " << a.getName();
+                    }
+                }
+                cout << endl << "with " << manager.bestFLight(airports, airports2).size() - 1 << " flights" << endl;
+
+                startMenu();
                 break;
         }
     }

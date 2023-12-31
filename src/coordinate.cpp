@@ -27,17 +27,13 @@ void Coordinate::setLongi(double longi){
     this->longi = longi;
 }
 
-vector<Coordinate> Coordinate::closest(vector<Coordinate> c) {
-    vector<Coordinate> cor;
+Coordinate Coordinate::closest(vector<Coordinate> c) {
+    Coordinate cor;
     double distance = 1000000000000000000; //MAX FLOAT
     for (auto coor : c){
         if (coor.distance(*this) < distance){
-            cor.clear();
-            cor.push_back(coor);
+            cor=coor;
             distance = coor.distance(*this);
-        }
-        if (coor.distance(*this) == distance){
-            cor.push_back(coor);
         }
     }
     return cor;
@@ -46,17 +42,25 @@ vector<Coordinate> Coordinate::closest(vector<Coordinate> c) {
 double Coordinate::distance(Coordinate c) {
         const double R = 6371.01; // Radius of the Earth in kilometers
 
-        double dLat = M_PI*(c.lati - this->lati)/180;
-        double dLon = M_PI*(c.longi - this->longi)/180;
+    const double lat_delta = convert(c.lati - this->lati);
+    const double lon_delta = convert(c.longi - this->longi);
+    const double converted_lat1 = convert(this->lati);
+    const double converted_lat2 = convert(c.lati);
 
-        double a = sin(dLat / 2) * sin(dLat / 2) + cos(this->lati) * cos(c.lati) * sin(dLon / 2) * sin(dLon / 2);
+    const auto a =
+            pow(sin(lat_delta / 2), 2) + cos(converted_lat1) * cos(converted_lat2) * pow(sin(lon_delta / 2), 2);
 
-        double cc = 2 * atan2(sqrt(a), sqrt(1 - a));
+    const auto cc = 2 * atan2(sqrt(a), sqrt(1 - a));
 
         return R * cc;
     }
 
 bool Coordinate::operator==(const Coordinate e) const {
     return (this->lati == e.lati && this->longi == e.longi);
+}
+
+double Coordinate::convert(const double angle)
+{
+    return angle * (M_PI / 180);
 }
 

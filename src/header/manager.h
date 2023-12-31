@@ -48,12 +48,14 @@ public:
     set<Airport> findReachableAirports(int n, set<Airport> a);
     set<string> reachableCities(string code, int n);
     set<string> reachableCountries(string code, int n);
-    pair<pair<Airport, Airport>, int> bestFLight(set<Airport> a1, set<Airport> a2);
+    vector<Airport> bestFLight(set<Airport> a1, set<Airport> a2);
     vector<pair<Airport, int>> getTraffic();
     void dfsArticulationPoints(Vertex<Airport>* v, Vertex<Airport>* parent, set<Airport>& articulationPoints, map<Airport, int>& disc, map<Airport, int>& low);
     set<Airport> findArticulationPoints();
     set<Airport> findAirportsByCity(string city);
     pair<vector<pair<Airport, Airport>>, int> longestTrips();
+
+    vector<Airport> bestFLight(Airport a1, Airport a2);
 };
 
 #endif //PROJECT2_MANAGER_H

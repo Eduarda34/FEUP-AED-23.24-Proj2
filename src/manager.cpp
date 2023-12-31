@@ -344,21 +344,21 @@ set<Airport> Manager::findReachableAirports(int n, set<Airport> a) {
 }
 
 
-pair<pair<Airport,Airport>,int> Manager::bestFLight(set<Airport> a1, set<Airport> a2) {
+    vector<Airport> Manager::bestFLight(set<Airport> a1, set<Airport> a2) {
     int stops = INT32_MAX;
-    Airport a11;
-    Airport a22;
-    for (auto a : a1){
-        for (auto b : a2){
-            if (airportsGraph.newBfs(a, b)<stops){
-                stops = airportsGraph.newBfs(a, b);
-                a11 = a;
-                a22 = b;
+    vector<Airport> res;
+
+    for (auto a : a1) {
+        for (auto b : a2) {
+            auto currentPath = airportsGraph.newBfs(a, b);
+            if (currentPath.size() < stops) {
+                stops = currentPath.size();
+                res = currentPath;
             }
         }
     }
-    pair<pair<Airport,Airport>,int> par = {{a11,a22},stops};
-    return par;
+
+    return res;
 }
 
 vector<pair<Airport, int>> Manager::getTraffic() {
