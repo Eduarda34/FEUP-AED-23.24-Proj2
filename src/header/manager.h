@@ -3,6 +3,8 @@
 
 #include <list>
 #include <set>
+#include <unordered_map>
+#include <map>
 #include "airport.h"
 #include "graph.h"
 #include "airlines.h"
@@ -16,6 +18,7 @@ private:
     vector<Airport> airports;
     vector<Airlines> airlines;
     set<string> cities;
+    vector<pair<Airport, int>> traffic;
 public:
     void buildAirports();
     void buildAirlines();
@@ -46,6 +49,9 @@ public:
     set<string> reachableCities(string code, int n);
     set<string> reachableCountries(string code, int n);
     pair<Airport,Airport> bestFLight(set<Airport> a1, set<Airport> a2);
+    vector<pair<Airport, int>> getTraffic();
+    void dfsArticulationPoints(Vertex<Airport>* v, Vertex<Airport>* parent, set<Airport>& articulationPoints, map<Airport, int>& disc, map<Airport, int>& low);
+    set<Airport> findArticulationPoints();
 };
 
 #endif //PROJECT2_MANAGER_H

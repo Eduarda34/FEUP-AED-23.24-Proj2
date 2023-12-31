@@ -20,7 +20,7 @@ template <class T>
 class Vertex {
     T info;                // contents
     vector<Edge<T> > adj;  // list of outgoing edges
-    bool visited;          // auxiliary field
+    bool visited = false;          // auxiliary field
     bool processing;       // auxiliary field
 
     void addEdge(Vertex<T> *dest, Airlines w);

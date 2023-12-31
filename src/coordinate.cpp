@@ -28,7 +28,7 @@ void Coordinate::setLongi(double longi){
 
 Coordinate Coordinate::closest(set<Coordinate> c) {
     Coordinate cor = Coordinate();
-    double distance = MAXFLOAT;
+    double distance = 1000000000000000000; //MAXFLOAT;
     for (auto coor : c){
         if (((this->lati - coor.getLati())*(this->lati - coor.getLati()) + ((this->lati - coor.getLati())*(this->lati - coor.getLati()))) < distance) cor = coor;
     }

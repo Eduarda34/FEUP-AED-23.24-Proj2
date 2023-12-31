@@ -6,6 +6,9 @@
 #include <algorithm>
 #include <set>
 #include <cmath>
+#include <cstdint>
+#include <unordered_map>
+#include <map>
 
 using namespace std;
 
@@ -29,6 +32,7 @@ void Manager::buildAirports() {
         airports.push_back(airport);
         airportsGraph.addVertex(airport);
         airportsUndirectedGraph.addVertex(airport);
+        traffic.push_back(pair<Airport, int>(airport, 0));
     }
     sort(airports.begin(), airports.end());
 }
@@ -71,6 +75,16 @@ void Manager::buildFlights() {
         airportsGraph.addEdge(sourceAirport, targetAirport, takenAirline);
         airportsUndirectedGraph.addEdge(sourceAirport, targetAirport, takenAirline);
         airportsUndirectedGraph.addEdge(targetAirport, sourceAirport, takenAirline);
+        for(auto &i : traffic) {
+            if (i.first.getCode() == source) {
+                i.second++;
+            }
+        }
+        for(auto &i : traffic) {
+            if (i.first.getCode() == target) {
+                i.second++;
+            }
+        }
     }
 }
 
@@ -330,8 +344,55 @@ pair<Airport, Airport> Manager::bestFLight(set<Airport> a1, set<Airport> a2) {
     return pair<Airport, Airport>();
 }
 
+vector<pair<Airport, int>> Manager::getTraffic() {
+    sort(traffic.begin(), traffic.end(), [](pair<Airport, int> a1, pair<Airport, int> a2){
+        return a1.second > a2.second;
+    });
+    return traffic;
+}
 
 
 set<string> reachableCities(string code);
 set<string> reachableCountries(string code);
+
+
+
+void Manager::dfsArticulationPoints(Vertex<Airport>* v, Vertex<Airport>* parent, set<Airport>& articulationPoints, map<Airport, int>& disc, map<Airport, int>& low) {
+    static int time = 0;
+    v->setVisited(true);
+    disc[v->getInfo()] = low[v->getInfo()] = ++time;
+    int children = 0;
+
+    for (const Edge<Airport>& edge : v->getAdj()) {
+        Vertex<Airport>* w = edge.getDest();
+
+        if (!w->isVisited()) {
+            children++;
+            dfsArticulationPoints(w, v, articulationPoints, disc, low);
+            low[v->getInfo()] = min(low[v->getInfo()], low[w->getInfo()]);
+
+            if (parent == NULL && children > 1)
+                articulationPoints.insert(v->getInfo());
+
+            if (parent != NULL && low[w->getInfo()] >= disc[v->getInfo()])
+                articulationPoints.insert(v->getInfo());
+        } else if (w != parent){
+            low[v->getInfo()] = min(low[v->getInfo()], disc[w->getInfo()]);
+        }
+    }
+}
+
+set<Airport> Manager::findArticulationPoints() {
+    set<Airport> articulationPoints;
+    map<Airport, int> disc;
+    map<Airport, int> low;
+
+    for (Vertex<Airport>* v : airportsUndirectedGraph.getVertexSet()) {
+        if (!v->isVisited()) {
+            dfsArticulationPoints(v, NULL, articulationPoints, disc, low);
+        }
+    }
+
+    return articulationPoints;
+}
 

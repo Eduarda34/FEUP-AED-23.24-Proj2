@@ -8,7 +8,8 @@ int main() {
     manager.buildAirports();
     manager.buildAirlines();
     manager.buildFlights();
+    cout << manager.findArticulationPoints().size();
     Menu menu = Menu(manager);
-    cout << manager.reachableAirports("DIJ", 1).size();
-    menu.startMenu();
+
+    //menu.startMenu();
 }
