@@ -36,6 +36,9 @@ vector<Coordinate> Coordinate::closest(vector<Coordinate> c) {
             cor.push_back(coor);
             distance = coor.distance(*this);
         }
+        if (coor.distance(*this) == distance){
+            cor.push_back(coor);
+        }
     }
     return cor;
 }
