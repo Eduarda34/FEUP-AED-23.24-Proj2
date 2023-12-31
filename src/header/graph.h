@@ -104,24 +104,21 @@ void Graph<T>::dfsVisit(Vertex<T> *v, vector<T> & res) const {
  */
 template <class T>
 int Graph<T>::newBfs(const T & source, const T & dest) const {
-    int stops = 0;
     vector<pair<Vertex<T> *, int>> res;
     auto s = findVertex(source);
     auto d = findVertex(dest);
-    queue<Vertex<T> *> q;
-    for (auto v : vertexSet)
-        v->visited = false;
-    q.push(s);
+    queue<pair<Vertex<T> *, int>> q;
+    for (auto f : vertexSet)
+        f->visited = false;
+    q.push({s,0});
     s->visited = true;
     while (!q.empty()) {
         auto v = q.front();
-        q.pop();
-        if (v == d) return stops;
-        stops++;
-        for (auto & e : v->adj) {
+        if (v.first == d) return v.second;
+        for (auto & e : v.first->adj) {
             auto w = e.dest;
             if ( ! w->visited ) {
-                q.push(w);
+                q.push({w, v.second + 1});
                 w->visited = true;
             }
         }

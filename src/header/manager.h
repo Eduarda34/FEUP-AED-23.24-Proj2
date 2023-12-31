@@ -23,7 +23,7 @@ public:
     void buildAirports();
     void buildAirlines();
     void buildFlights();
-    Graph<Airport> getAirports();
+    vector<Airport> getAirports();
     Airport findAirport(string code);
     Airport findAirportByName(string name);
     Airlines findAirlines(string name);
@@ -48,10 +48,12 @@ public:
     set<Airport> findReachableAirports(int n, set<Airport> a);
     set<string> reachableCities(string code, int n);
     set<string> reachableCountries(string code, int n);
-    pair<Airport,Airport> bestFLight(set<Airport> a1, set<Airport> a2);
+    pair<pair<Airport, Airport>, int> bestFLight(set<Airport> a1, set<Airport> a2);
     vector<pair<Airport, int>> getTraffic();
     void dfsArticulationPoints(Vertex<Airport>* v, Vertex<Airport>* parent, set<Airport>& articulationPoints, map<Airport, int>& disc, map<Airport, int>& low);
     set<Airport> findArticulationPoints();
+
+    set<Airport> findAirportsByCity(string city);
 };
 
 #endif //PROJECT2_MANAGER_H

@@ -3,6 +3,7 @@
 
 #include <set>
 #include <cmath>
+#include <vector>
 using namespace std;
 
 
@@ -17,7 +18,9 @@ public:
     double getLongi();
     void setLati(double lati);
     void setLongi(double longi);
-    Coordinate closest(set<Coordinate> c);
+    double distance(Coordinate c);
+    vector<Coordinate> closest(vector<Coordinate> c);
+    bool operator == (const Coordinate e) const;
 };
 
 #endif //AIRPORT_COORDINATE_H

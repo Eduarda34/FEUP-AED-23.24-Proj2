@@ -126,8 +126,8 @@ Airlines Manager::findAirlines(string code) {
 
 
 
-Graph<Airport> Manager::getAirports() {
-    return airportsGraph;
+vector<Airport> Manager::getAirports() {
+    return airports;
 }
 
 list<string> Manager::airportFromCountry(string country){
@@ -306,6 +306,15 @@ Airport Manager::findAirportByName(string name) {
         }
     }
 }
+set<Airport> Manager::findAirportsByCity(string city) {
+    set<Airport> airports;
+    for (auto a : airports){
+        if (a.getCity() == city){
+            airports.insert(a);
+        }
+    }
+    return airports;
+}
 
 set<Airport> Manager::reachableAirports(string code, int n) {
     set<Airport> y;
@@ -334,14 +343,22 @@ set<Airport> Manager::findReachableAirports(int n, set<Airport> a) {
     }
 }
 
-pair<Airport, Airport> Manager::bestFLight(set<Airport> a1, set<Airport> a2) {
+
+pair<pair<Airport,Airport>,int> Manager::bestFLight(set<Airport> a1, set<Airport> a2) {
     int stops = INT32_MAX;
+    Airport a11;
+    Airport a22;
     for (auto a : a1){
         for (auto b : a2){
-            airportsGraph.newBfs(a, b);
+            if (airportsGraph.newBfs(a, b)<stops){
+                stops = airportsGraph.newBfs(a, b);
+                a11 = a;
+                a22 = b;
+            }
         }
     }
-    return pair<Airport, Airport>();
+    pair<pair<Airport,Airport>,int> par = {{a11,a22},stops};
+    return par;
 }
 
 vector<pair<Airport, int>> Manager::getTraffic() {

@@ -10,6 +10,5 @@ int main() {
     manager.buildFlights();
     cout << manager.findArticulationPoints().size();
     Menu menu = Menu(manager);
-
-    //menu.startMenu();
+    menu.startMenu();
 }
