@@ -59,8 +59,7 @@ bool Coordinate::operator==(const Coordinate e) const {
     return (this->lati == e.lati && this->longi == e.longi);
 }
 
-double Coordinate::convert(const double angle)
-{
+double Coordinate::convert(const double angle) {
     return angle * (M_PI / 180);
 }
 

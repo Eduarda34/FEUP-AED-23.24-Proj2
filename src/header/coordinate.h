@@ -18,6 +18,12 @@ public:
     double getLongi();
     void setLati(double lati);
     void setLongi(double longi);
+
+    /**
+     *
+     * @param c
+     * @return
+     */
     double distance(Coordinate c);
     Coordinate closest(vector<Coordinate> c);
     bool operator == (const Coordinate e) const;

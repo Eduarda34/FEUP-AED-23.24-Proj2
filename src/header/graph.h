@@ -60,8 +60,22 @@ class Graph {
 public:
     Vertex<T> *findVertex(const T &in) const;
     int getNumVertex() const;
+
+    /**
+     * @brief adds a vertex to the graph
+     * @param in
+     * @return "true" if insertion occurs
+     */
     bool addVertex(const T &in);
     bool removeVertex(const T &in);
+
+    /**
+     * @brief adds an edge to a vertex of the graph
+     * @param sourc
+     * @param dest
+     * @param w
+     * @return
+     */
     bool addEdge(const T &sourc, const T &dest, Airlines w);
     bool removeEdge(const T &sourc, const T &dest);
     vector<Vertex<T> * > getVertexSet() const;
