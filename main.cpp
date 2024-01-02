@@ -5,9 +5,7 @@
 
 int main() {
     Manager manager = Manager();
-    manager.buildAirports();
-    manager.buildAirlines();
-    manager.buildFlights();
     Menu menu = Menu(manager);
+    menu.start();
     menu.startMenu();
 }

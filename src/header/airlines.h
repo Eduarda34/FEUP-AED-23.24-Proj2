@@ -14,8 +14,27 @@ private:
 
 public:
     Airlines(string name, string code, string callsign, string country);
-    string getName();
-    string getCode();
+
+
+    /**
+     * @brief returns the name of the airline
+     * Complexity: O(1)
+     * @return name of the airline
+     */
+    string getName() const;
+
+    /**
+     * @brief returns the code of the airline
+     * Complexity: O(1)
+     * @return code of the airlines
+     */
+    string getCode() const;
+
+    /**
+     * @brief returns the country of the airline
+     * Complexity: O(1)
+     * @return country of the airline
+     */
     string getCountry();
     bool operator > (const Airlines e) const;
     bool operator < (const Airlines e) const;
