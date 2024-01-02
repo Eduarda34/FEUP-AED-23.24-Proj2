@@ -66,18 +66,47 @@ public:
     int getNumVertex() const;
     bool addVertex(Airport &in);
     bool removeVertex(const T &in);
-    bool addEdge( T &sourc,  T &dest, Airlines w);
+
+
+    /**
+     * @brief adds an edge to a vertex of the graph
+     * @param sourc
+     * @param dest
+     * @param w
+     * @return "true" if allows adding a directed edge between two existing vertices
+     */
+    bool addEdge(T &sourc, T &dest, Airlines w);
     bool removeEdge(const T &sourc, const T &dest);
+
+    /**
+     *
+     * @return copy of the vertexSet vector which contains pointers to the vertices of the graph
+     */
     vector<Vertex<T> * > getVertexSet() const;
     vector<T> dfs() const;
     vector<T> dfs(const T & source) const;
     vector<T> bfs(const T &source) const;
+
+    /**
+     *
+     * @param source
+     * @return vector with the contents of the vertices by bfs order.
+     */
     vector<pair<Vertex<T> *, int>> LongestBfs( T source);
     vector<Airport> newBfs( T &source, T &dest) const;
 
     vector<Airport> newBfs( T &source, T &dest, vector<Edge<T>> edges) const;
 
-    vector<vector<Airport>> newBfs(T &source, T &dest, vector<string> edges) const;
+
+    /**
+     *
+     * @param source
+     * @param dest
+     * @param edges
+     * @return vector containing the valid paths found
+     */
+    vector<vector<Airport>> newBfs(T &source,T &dest, vector<string> edges) const;
+
 };
 
 

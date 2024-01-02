@@ -19,8 +19,7 @@ bool \mbox{\hyperlink{class_graph_adb9fc3a8c62cf70837ffcbf17764c632}{add\+Edge}}
 \mbox{\Hypertarget{class_graph_a1106092a37366486cf55576f9ec01692}\label{class_graph_a1106092a37366486cf55576f9ec01692}} 
 bool {\bfseries remove\+Edge} (const T \&sourc, const T \&dest)
 \item 
-\mbox{\Hypertarget{class_graph_a923b43995f81ad9319bbc81a1e433e64}\label{class_graph_a923b43995f81ad9319bbc81a1e433e64}} 
-vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ $\ast$ $>$ {\bfseries get\+Vertex\+Set} () const
+vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ $\ast$ $>$ \mbox{\hyperlink{class_graph_a923b43995f81ad9319bbc81a1e433e64}{get\+Vertex\+Set}} () const
 \item 
 \mbox{\Hypertarget{class_graph_a911798b1a89f8c4ae90ba3eee849cff8}\label{class_graph_a911798b1a89f8c4ae90ba3eee849cff8}} 
 vector$<$ T $>$ {\bfseries dfs} () const
@@ -31,8 +30,7 @@ vector$<$ T $>$ {\bfseries dfs} (const T \&source) const
 \mbox{\Hypertarget{class_graph_aa47a4130165550e208e7a063fce6983a}\label{class_graph_aa47a4130165550e208e7a063fce6983a}} 
 vector$<$ T $>$ {\bfseries bfs} (const T \&source) const
 \item 
-\mbox{\Hypertarget{class_graph_a3c314984e81d812d910705a72322522a}\label{class_graph_a3c314984e81d812d910705a72322522a}} 
-vector$<$ pair$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ $\ast$, int $>$ $>$ {\bfseries Longest\+Bfs} (T source)
+vector$<$ pair$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ $\ast$, int $>$ $>$ \mbox{\hyperlink{class_graph_a3c314984e81d812d910705a72322522a}{Longest\+Bfs}} (T source)
 \item 
 \mbox{\Hypertarget{class_graph_a7a1039a5ee69deed1903ffae7f39687d}\label{class_graph_a7a1039a5ee69deed1903ffae7f39687d}} 
 vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ {\bfseries new\+Bfs} (const T \&source, const T \&dest) const
@@ -40,8 +38,7 @@ vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ {\bfseries new\+Bfs} (co
 \mbox{\Hypertarget{class_graph_af816eb50a4fc50d0ef1c66816392d287}\label{class_graph_af816eb50a4fc50d0ef1c66816392d287}} 
 vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ {\bfseries new\+Bfs} (const T \&source, const T \&dest, vector$<$ \mbox{\hyperlink{class_edge}{Edge}}$<$ T $>$ $>$ edges) const
 \item 
-\mbox{\Hypertarget{class_graph_a0049fb0afbf2235a6fcaed786f6585a9}\label{class_graph_a0049fb0afbf2235a6fcaed786f6585a9}} 
-vector$<$ vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ $>$ {\bfseries new\+Bfs} (const T \&source, const T \&dest, vector$<$ string $>$ edges) const
+vector$<$ vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ $>$ \mbox{\hyperlink{class_graph_a0049fb0afbf2235a6fcaed786f6585a9}{new\+Bfs}} (const T \&source, const T \&dest, vector$<$ string $>$ edges) const
 \end{DoxyCompactItemize}
 
 
@@ -67,7 +64,7 @@ adds an edge to a vertex of the graph
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+\char`\"{}true\char`\"{} if allows adding a directed edge between two existing vertices 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_graph_a00be284ea2be3b3d0f0d2e493b70245b}\label{class_graph_a00be284ea2be3b3d0f0d2e493b70245b}} 
 \index{Graph$<$ T $>$@{Graph$<$ T $>$}!addVertex@{addVertex}}
@@ -87,6 +84,50 @@ adds a vertex to the graph
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 \char`\"{}true\char`\"{} if insertion occurs 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a923b43995f81ad9319bbc81a1e433e64}\label{class_graph_a923b43995f81ad9319bbc81a1e433e64}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!getVertexSet@{getVertexSet}}
+\index{getVertexSet@{getVertexSet}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getVertexSet()}{getVertexSet()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ $\ast$ $>$ \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::get\+Vertex\+Set}
+
+\begin{DoxyReturn}{Returns}
+copy of the vertex\+Set vector which contains pointers to the vertices of the graph 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a3c314984e81d812d910705a72322522a}\label{class_graph_a3c314984e81d812d910705a72322522a}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!LongestBfs@{LongestBfs}}
+\index{LongestBfs@{LongestBfs}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{LongestBfs()}{LongestBfs()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+vector$<$ pair$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ $\ast$, int $>$ $>$ \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::Longest\+Bfs (\begin{DoxyParamCaption}\item[{T}]{source }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector with the contents of the vertices by bfs order. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a0049fb0afbf2235a6fcaed786f6585a9}\label{class_graph_a0049fb0afbf2235a6fcaed786f6585a9}} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!newBfs@{newBfs}}
+\index{newBfs@{newBfs}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{newBfs()}{newBfs()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+vector$<$ vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ $>$ \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::new\+Bfs (\begin{DoxyParamCaption}\item[{const T \&}]{source,  }\item[{const T \&}]{dest,  }\item[{vector$<$ string $>$}]{edges }\end{DoxyParamCaption}) const}
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \\
+\hline
+{\em dest} & \\
+\hline
+{\em edges} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector containing the valid paths found 
 \end{DoxyReturn}
 
 

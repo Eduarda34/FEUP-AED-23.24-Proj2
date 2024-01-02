@@ -9,27 +9,22 @@ void \mbox{\hyperlink{class_manager_a4dde09bdd2c61b3f8a4cf6fc10315882}{build\+Ai
 \item 
 void \mbox{\hyperlink{class_manager_a2380bf781e5f86303884e86b29700e59}{build\+Flights}} ()
 \item 
-\mbox{\Hypertarget{class_manager_a6f8e8d371c40c75265cee2da00746b46}\label{class_manager_a6f8e8d371c40c75265cee2da00746b46}} 
-vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ {\bfseries get\+Airports} ()
+vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \mbox{\hyperlink{class_manager_a6f8e8d371c40c75265cee2da00746b46}{get\+Airports}} ()
 \item 
-\mbox{\Hypertarget{class_manager_a5f96f1f8dde4b32a52ed3a41e8daae3a}\label{class_manager_a5f96f1f8dde4b32a52ed3a41e8daae3a}} 
-\mbox{\hyperlink{class_airport}{Airport}} {\bfseries find\+Airport} (string code)
-\item 
+\mbox{\hyperlink{class_airport}{Airport}} \mbox{\hyperlink{class_manager_a5f96f1f8dde4b32a52ed3a41e8daae3a}{find\+Airport}} (string code)
+\begin{DoxyCompactList}\small\item\em implements a binary search looking for an \mbox{\hyperlink{class_airport}{Airport}} that matches the code provided \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_manager_a2fcbf8d184a0c69b62d31d20129e2980}\label{class_manager_a2fcbf8d184a0c69b62d31d20129e2980}} 
 \mbox{\hyperlink{class_airport}{Airport}} {\bfseries find\+Airport\+By\+Name} (string name)
 \item 
-\mbox{\Hypertarget{class_manager_adf29e14f85469ed663d3634851e763ad}\label{class_manager_adf29e14f85469ed663d3634851e763ad}} 
-\mbox{\hyperlink{class_airlines}{Airlines}} {\bfseries find\+Airlines} (string name)
-\item 
+\mbox{\hyperlink{class_airlines}{Airlines}} \mbox{\hyperlink{class_manager_adf29e14f85469ed663d3634851e763ad}{find\+Airlines}} (string name)
+\begin{DoxyCompactList}\small\item\em Binary search on the airlines vector to find an airline that matches the given code. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_manager_a459e310c130a538e0c9c7e8a3c6319bc}\label{class_manager_a459e310c130a538e0c9c7e8a3c6319bc}} 
 list$<$ string $>$ {\bfseries airport\+From\+Country} (string country)
 \item 
-\mbox{\Hypertarget{class_manager_a10e248efe243f3505324915ec6943452}\label{class_manager_a10e248efe243f3505324915ec6943452}} 
-int {\bfseries number\+Airports} ()
+int \mbox{\hyperlink{class_manager_a10e248efe243f3505324915ec6943452}{number\+Airports}} ()
 \item 
-\mbox{\Hypertarget{class_manager_a1c040967266e37f4d655b9a630b52c44}\label{class_manager_a1c040967266e37f4d655b9a630b52c44}} 
-int {\bfseries number\+Flights} ()
-\item 
+int \mbox{\hyperlink{class_manager_a1c040967266e37f4d655b9a630b52c44}{number\+Flights}} ()
+\begin{DoxyCompactList}\small\item\em count the number of flights \end{DoxyCompactList}\item 
 vector$<$ \mbox{\hyperlink{class_edge}{Edge}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ $>$ \mbox{\hyperlink{class_manager_a6e49eaef2d967d59de82ff0ff688dce5}{get\+Flights\+Out\+An\+Airport\+By\+Name}} (string name)
 \item 
 vector$<$ \mbox{\hyperlink{class_edge}{Edge}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ $>$ \mbox{\hyperlink{class_manager_a7baeabcf6952a1e0e3ff80d65f6f685b}{get\+Flights\+Out\+An\+Airport\+By\+Code}} (string code)
@@ -43,18 +38,15 @@ int {\bfseries get\+Number\+Of\+Airlines\+Out\+An\+Airport\+By\+Name} (string na
 \item 
 int \mbox{\hyperlink{class_manager_a8d3b142e2c026c39e63a1c4171773d56}{get\+Number\+Of\+Airlines\+Out\+An\+Airport\+By\+Code}} (string code)
 \item 
-\mbox{\Hypertarget{class_manager_a614645a7a25d33431d91406aae993008}\label{class_manager_a614645a7a25d33431d91406aae993008}} 
-int {\bfseries number\+Of\+Flights\+Out\+Of\+The\+City} (string city)
-\item 
-\mbox{\Hypertarget{class_manager_a3e21048d57298021e939c1297944fcbc}\label{class_manager_a3e21048d57298021e939c1297944fcbc}} 
-int {\bfseries number\+Of\+Flight\+Into\+The\+City} (string city)
-\item 
+int \mbox{\hyperlink{class_manager_a614645a7a25d33431d91406aae993008}{number\+Of\+Flights\+Out\+Of\+The\+City}} (string city)
+\begin{DoxyCompactList}\small\item\em counts the number of flights leaving a specific city \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_manager_a3e21048d57298021e939c1297944fcbc}{number\+Of\+Flight\+Into\+The\+City}} (string city)
+\begin{DoxyCompactList}\small\item\em counts the number of flights arriving at a specific city \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_manager_ab25b41c7c0a32d49956bf84ceee3788e}\label{class_manager_ab25b41c7c0a32d49956bf84ceee3788e}} 
 int {\bfseries number\+Of\+Flights\+Per\+Airline\+Name} (string name)
 \item 
-\mbox{\Hypertarget{class_manager_afb4096c32000657fa3f53d33a45a065b}\label{class_manager_afb4096c32000657fa3f53d33a45a065b}} 
-int {\bfseries number\+Of\+Flights\+Per\+Airline\+Code} (string code)
-\item 
+int \mbox{\hyperlink{class_manager_afb4096c32000657fa3f53d33a45a065b}{number\+Of\+Flights\+Per\+Airline\+Code}} (string code)
+\begin{DoxyCompactList}\small\item\em counts the number of flights associated with a particular airline (by code) \end{DoxyCompactList}\item 
 set$<$ string $>$ \mbox{\hyperlink{class_manager_ac5e94c5d5bc5a2489b349774587bbed3}{find\+Countries}} (set$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ airports)
 \item 
 \mbox{\Hypertarget{class_manager_a1fe0180d1e417681224d75f42d79134d}\label{class_manager_a1fe0180d1e417681224d75f42d79134d}} 
@@ -62,15 +54,13 @@ set$<$ string $>$ {\bfseries countries\+From\+Airport} (string acode)
 \item 
 set$<$ string $>$ \mbox{\hyperlink{class_manager_afeeb66da92676281ee67d7517bd08096}{find\+Cities}} (set$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ airports)
 \item 
-\mbox{\Hypertarget{class_manager_ab107c458973560ce33d7f4e8223158b1}\label{class_manager_ab107c458973560ce33d7f4e8223158b1}} 
-set$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ {\bfseries airport\+Dest} (\mbox{\hyperlink{class_airport}{Airport}} airport)
+set$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \mbox{\hyperlink{class_manager_ab107c458973560ce33d7f4e8223158b1}{airport\+Dest}} (\mbox{\hyperlink{class_airport}{Airport}} airport)
 \item 
 \mbox{\Hypertarget{class_manager_a0ca35471db1c697888612cec918202d0}\label{class_manager_a0ca35471db1c697888612cec918202d0}} 
 set$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ {\bfseries reachable\+Airports} (string code, int n)
 \item 
-\mbox{\Hypertarget{class_manager_aac8c7afa07a48724b5ffeb16154658e2}\label{class_manager_aac8c7afa07a48724b5ffeb16154658e2}} 
-set$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ {\bfseries find\+Reachable\+Airports} (int n, set$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ a)
-\item 
+set$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \mbox{\hyperlink{class_manager_aac8c7afa07a48724b5ffeb16154658e2}{find\+Reachable\+Airports}} (int n, set$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ a)
+\begin{DoxyCompactList}\small\item\em calculates the airport reachable \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_manager_ad1467864c2147f69afdf2b1402d04daf}\label{class_manager_ad1467864c2147f69afdf2b1402d04daf}} 
 set$<$ string $>$ {\bfseries reachable\+Cities} (string code, int n)
 \item 
@@ -83,30 +73,62 @@ vector$<$ vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ $>$ {\bfseries
 \mbox{\Hypertarget{class_manager_afa1a8075cb2a4a8b91258909a435158d}\label{class_manager_afa1a8075cb2a4a8b91258909a435158d}} 
 vector$<$ pair$<$ \mbox{\hyperlink{class_airport}{Airport}}, int $>$ $>$ {\bfseries get\+Traffic} ()
 \item 
-\mbox{\Hypertarget{class_manager_aba44582698c51f55ebd6735ebf5234fa}\label{class_manager_aba44582698c51f55ebd6735ebf5234fa}} 
-void {\bfseries dfs\+Articulation\+Points} (\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ $\ast$v, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ $\ast$parent, set$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&articulation\+Points, map$<$ \mbox{\hyperlink{class_airport}{Airport}}, int $>$ \&disc, map$<$ \mbox{\hyperlink{class_airport}{Airport}}, int $>$ \&low)
-\item 
+void \mbox{\hyperlink{class_manager_aba44582698c51f55ebd6735ebf5234fa}{dfs\+Articulation\+Points}} (\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ $\ast$v, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ $\ast$parent, set$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&articulation\+Points, map$<$ \mbox{\hyperlink{class_airport}{Airport}}, int $>$ \&disc, map$<$ \mbox{\hyperlink{class_airport}{Airport}}, int $>$ \&low)
+\begin{DoxyCompactList}\small\item\em implements dfs to find articulation points \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_manager_a5a36e3735e3cdd15a23fc45086067f92}\label{class_manager_a5a36e3735e3cdd15a23fc45086067f92}} 
 set$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ {\bfseries find\+Articulation\+Points} ()
 \item 
-\mbox{\Hypertarget{class_manager_afae3ccba2e986829e78472ac76bebd32}\label{class_manager_afae3ccba2e986829e78472ac76bebd32}} 
-set$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ {\bfseries find\+Airports\+By\+City} (string city)
-\item 
+set$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \mbox{\hyperlink{class_manager_afae3ccba2e986829e78472ac76bebd32}{find\+Airports\+By\+City}} (string city)
+\begin{DoxyCompactList}\small\item\em find a set of airports that are located in a specific city \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_manager_a6c50d36404574be947357552f0e1d80c}\label{class_manager_a6c50d36404574be947357552f0e1d80c}} 
 pair$<$ vector$<$ pair$<$ \mbox{\hyperlink{class_airport}{Airport}}, \mbox{\hyperlink{class_airport}{Airport}} $>$ $>$, int $>$ {\bfseries longest\+Trips} ()
 \item 
 \mbox{\Hypertarget{class_manager_ace5d3dac48ea53aaffa92f20d6dbca19}\label{class_manager_ace5d3dac48ea53aaffa92f20d6dbca19}} 
 vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ {\bfseries best\+FLight} (\mbox{\hyperlink{class_airport}{Airport}} a1, \mbox{\hyperlink{class_airport}{Airport}} a2)
 \item 
-\mbox{\Hypertarget{class_manager_a87a0c9d31da6212bedac60b88136a6af}\label{class_manager_a87a0c9d31da6212bedac60b88136a6af}} 
-set$<$ vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ $>$ {\bfseries best\+FLight} (set$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ a1, set$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ a2, vector$<$ string $>$ edges)
-\item 
-\mbox{\Hypertarget{class_manager_aa8045c09c2d70ef0c86b464bcc387eec}\label{class_manager_aa8045c09c2d70ef0c86b464bcc387eec}} 
-vector$<$ \mbox{\hyperlink{class_airlines}{Airlines}} $>$ {\bfseries get\+Airlines} ()
-\end{DoxyCompactItemize}
+set$<$ vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ $>$ \mbox{\hyperlink{class_manager_a87a0c9d31da6212bedac60b88136a6af}{best\+FLight}} (set$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ a1, set$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ a2, vector$<$ string $>$ edges)
+\begin{DoxyCompactList}\small\item\em calculate the best flight route between two sets of airports \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{class_airlines}{Airlines}} $>$ \mbox{\hyperlink{class_manager_aa8045c09c2d70ef0c86b464bcc387eec}{get\+Airlines}} ()
+\begin{DoxyCompactList}\small\item\em find the pair of airports that have the longest trip between them (length of that trip) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_manager_ab107c458973560ce33d7f4e8223158b1}\label{class_manager_ab107c458973560ce33d7f4e8223158b1}} 
+\index{Manager@{Manager}!airportDest@{airportDest}}
+\index{airportDest@{airportDest}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{airportDest()}{airportDest()}}
+{\footnotesize\ttfamily set$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ Manager\+::airport\+Dest (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_airport}{Airport}}}]{airport }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em airport} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+set of airports 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_manager_a87a0c9d31da6212bedac60b88136a6af}\label{class_manager_a87a0c9d31da6212bedac60b88136a6af}} 
+\index{Manager@{Manager}!bestFLight@{bestFLight}}
+\index{bestFLight@{bestFLight}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{bestFLight()}{bestFLight()}}
+{\footnotesize\ttfamily set$<$ vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ $>$ Manager\+::best\+FLight (\begin{DoxyParamCaption}\item[{set$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$}]{a1,  }\item[{set$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$}]{a2,  }\item[{vector$<$ string $>$}]{edges }\end{DoxyParamCaption})}
+
+
+
+calculate the best flight route between two sets of airports 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a1} & \\
+\hline
+{\em a2} & \\
+\hline
+{\em edges} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+set that contains all paths with the fewest stops 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_manager_a4dde09bdd2c61b3f8a4cf6fc10315882}\label{class_manager_a4dde09bdd2c61b3f8a4cf6fc10315882}} 
 \index{Manager@{Manager}!buildAirlines@{buildAirlines}}
 \index{buildAirlines@{buildAirlines}!Manager@{Manager}}
@@ -125,7 +147,84 @@ Reads the cvs files and fills the list airports with the elements of the class a
 \doxysubsubsection{\texorpdfstring{buildFlights()}{buildFlights()}}
 {\footnotesize\ttfamily void Manager\+::build\+Flights (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Reads the flights.\+csv files and fills the graph Complexity\+: O(n $\ast$ 2log(h) $\ast$ log(y)) \mbox{\Hypertarget{class_manager_afeeb66da92676281ee67d7517bd08096}\label{class_manager_afeeb66da92676281ee67d7517bd08096}} 
+Reads the flights.\+csv files and fills the graph Complexity\+: O(n $\ast$ 2log(h) $\ast$ log(y)) \mbox{\Hypertarget{class_manager_aba44582698c51f55ebd6735ebf5234fa}\label{class_manager_aba44582698c51f55ebd6735ebf5234fa}} 
+\index{Manager@{Manager}!dfsArticulationPoints@{dfsArticulationPoints}}
+\index{dfsArticulationPoints@{dfsArticulationPoints}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{dfsArticulationPoints()}{dfsArticulationPoints()}}
+{\footnotesize\ttfamily void Manager\+::dfs\+Articulation\+Points (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ $\ast$}]{v,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ $\ast$}]{parent,  }\item[{set$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&}]{articulation\+Points,  }\item[{map$<$ \mbox{\hyperlink{class_airport}{Airport}}, int $>$ \&}]{disc,  }\item[{map$<$ \mbox{\hyperlink{class_airport}{Airport}}, int $>$ \&}]{low }\end{DoxyParamCaption})}
+
+
+
+implements dfs to find articulation points 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & \\
+\hline
+{\em parent} & \\
+\hline
+{\em articulation\+Points} & \\
+\hline
+{\em disc} & \\
+\hline
+{\em low} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_manager_adf29e14f85469ed663d3634851e763ad}\label{class_manager_adf29e14f85469ed663d3634851e763ad}} 
+\index{Manager@{Manager}!findAirlines@{findAirlines}}
+\index{findAirlines@{findAirlines}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{findAirlines()}{findAirlines()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_airlines}{Airlines}} Manager\+::find\+Airlines (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})}
+
+
+
+Binary search on the airlines vector to find an airline that matches the given code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+corresponding airline 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_manager_a5f96f1f8dde4b32a52ed3a41e8daae3a}\label{class_manager_a5f96f1f8dde4b32a52ed3a41e8daae3a}} 
+\index{Manager@{Manager}!findAirport@{findAirport}}
+\index{findAirport@{findAirport}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{findAirport()}{findAirport()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_airport}{Airport}} Manager\+::find\+Airport (\begin{DoxyParamCaption}\item[{string}]{code }\end{DoxyParamCaption})}
+
+
+
+implements a binary search looking for an \mbox{\hyperlink{class_airport}{Airport}} that matches the code provided 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+corresponding airport object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_manager_afae3ccba2e986829e78472ac76bebd32}\label{class_manager_afae3ccba2e986829e78472ac76bebd32}} 
+\index{Manager@{Manager}!findAirportsByCity@{findAirportsByCity}}
+\index{findAirportsByCity@{findAirportsByCity}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{findAirportsByCity()}{findAirportsByCity()}}
+{\footnotesize\ttfamily set$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ Manager\+::find\+Airports\+By\+City (\begin{DoxyParamCaption}\item[{string}]{city }\end{DoxyParamCaption})}
+
+
+
+find a set of airports that are located in a specific city 
+
+
+\begin{DoxyParams}{Parameters}
+{\em city} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+set that contains all airports found in the specified city 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_manager_afeeb66da92676281ee67d7517bd08096}\label{class_manager_afeeb66da92676281ee67d7517bd08096}} 
 \index{Manager@{Manager}!findCities@{findCities}}
 \index{findCities@{findCities}!Manager@{Manager}}
 \doxysubsubsection{\texorpdfstring{findCities()}{findCities()}}
@@ -152,6 +251,48 @@ list of cities
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 list of countries 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_manager_aac8c7afa07a48724b5ffeb16154658e2}\label{class_manager_aac8c7afa07a48724b5ffeb16154658e2}} 
+\index{Manager@{Manager}!findReachableAirports@{findReachableAirports}}
+\index{findReachableAirports@{findReachableAirports}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{findReachableAirports()}{findReachableAirports()}}
+{\footnotesize\ttfamily set$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ Manager\+::find\+Reachable\+Airports (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{set$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$}]{a }\end{DoxyParamCaption})}
+
+
+
+calculates the airport reachable 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & \\
+\hline
+{\em a} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+result of the set 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_manager_aa8045c09c2d70ef0c86b464bcc387eec}\label{class_manager_aa8045c09c2d70ef0c86b464bcc387eec}} 
+\index{Manager@{Manager}!getAirlines@{getAirlines}}
+\index{getAirlines@{getAirlines}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{getAirlines()}{getAirlines()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_airlines}{Airlines}} $>$ Manager\+::get\+Airlines (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+find the pair of airports that have the longest trip between them (length of that trip) 
+
+\begin{DoxyReturn}{Returns}
+pair that contains a vector of airport pairs (longest trip(s)) and an integer (length of these longest trips) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_manager_a6f8e8d371c40c75265cee2da00746b46}\label{class_manager_a6f8e8d371c40c75265cee2da00746b46}} 
+\index{Manager@{Manager}!getAirports@{getAirports}}
+\index{getAirports@{getAirports}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{getAirports()}{getAirports()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ Manager\+::get\+Airports (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+airport vector 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_manager_a7baeabcf6952a1e0e3ff80d65f6f685b}\label{class_manager_a7baeabcf6952a1e0e3ff80d65f6f685b}} 
 \index{Manager@{Manager}!getFlightsOutAnAirportByCode@{getFlightsOutAnAirportByCode}}
@@ -222,6 +363,82 @@ Complexity\+: O(n)
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 number of flights 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_manager_a10e248efe243f3505324915ec6943452}\label{class_manager_a10e248efe243f3505324915ec6943452}} 
+\index{Manager@{Manager}!numberAirports@{numberAirports}}
+\index{numberAirports@{numberAirports}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{numberAirports()}{numberAirports()}}
+{\footnotesize\ttfamily int Manager\+::number\+Airports (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+number of airports stored in the vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_manager_a1c040967266e37f4d655b9a630b52c44}\label{class_manager_a1c040967266e37f4d655b9a630b52c44}} 
+\index{Manager@{Manager}!numberFlights@{numberFlights}}
+\index{numberFlights@{numberFlights}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{numberFlights()}{numberFlights()}}
+{\footnotesize\ttfamily int Manager\+::number\+Flights (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+count the number of flights 
+
+\begin{DoxyReturn}{Returns}
+total number of flights 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_manager_a3e21048d57298021e939c1297944fcbc}\label{class_manager_a3e21048d57298021e939c1297944fcbc}} 
+\index{Manager@{Manager}!numberOfFlightIntoTheCity@{numberOfFlightIntoTheCity}}
+\index{numberOfFlightIntoTheCity@{numberOfFlightIntoTheCity}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{numberOfFlightIntoTheCity()}{numberOfFlightIntoTheCity()}}
+{\footnotesize\ttfamily int Manager\+::number\+Of\+Flight\+Into\+The\+City (\begin{DoxyParamCaption}\item[{string}]{city }\end{DoxyParamCaption})}
+
+
+
+counts the number of flights arriving at a specific city 
+
+
+\begin{DoxyParams}{Parameters}
+{\em city} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of flights arriving at the specified city 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_manager_a614645a7a25d33431d91406aae993008}\label{class_manager_a614645a7a25d33431d91406aae993008}} 
+\index{Manager@{Manager}!numberOfFlightsOutOfTheCity@{numberOfFlightsOutOfTheCity}}
+\index{numberOfFlightsOutOfTheCity@{numberOfFlightsOutOfTheCity}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{numberOfFlightsOutOfTheCity()}{numberOfFlightsOutOfTheCity()}}
+{\footnotesize\ttfamily int Manager\+::number\+Of\+Flights\+Out\+Of\+The\+City (\begin{DoxyParamCaption}\item[{string}]{city }\end{DoxyParamCaption})}
+
+
+
+counts the number of flights leaving a specific city 
+
+
+\begin{DoxyParams}{Parameters}
+{\em city} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of flights leaving the specified city 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_manager_afb4096c32000657fa3f53d33a45a065b}\label{class_manager_afb4096c32000657fa3f53d33a45a065b}} 
+\index{Manager@{Manager}!numberOfFlightsPerAirlineCode@{numberOfFlightsPerAirlineCode}}
+\index{numberOfFlightsPerAirlineCode@{numberOfFlightsPerAirlineCode}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{numberOfFlightsPerAirlineCode()}{numberOfFlightsPerAirlineCode()}}
+{\footnotesize\ttfamily int Manager\+::number\+Of\+Flights\+Per\+Airline\+Code (\begin{DoxyParamCaption}\item[{string}]{code }\end{DoxyParamCaption})}
+
+
+
+counts the number of flights associated with a particular airline (by code) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of flights associated with the airline (by code) 
 \end{DoxyReturn}
 
 
