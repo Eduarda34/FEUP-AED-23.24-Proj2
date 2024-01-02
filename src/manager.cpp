@@ -30,6 +30,7 @@ void Manager::buildAirports() {
         float fLongitude = stof(longitude);
         Airport airport = Airport(code, name, city, country, fLatitude, fLongitude);
         airports.push_back(airport);
+        airportsHash.insert(code, airport);
         airportsGraph.addVertex(airport);
         airportsUndirectedGraph.addVertex(airport);
         traffic.push_back(pair<Airport, int>(airport, 0));
@@ -50,6 +51,7 @@ void Manager::buildAirlines() {
         getline(info, callsign, ',');
         getline(info, country, ',');
         Airlines airline = Airlines(name, code, callsign, country);
+        airlinesHash.insert(code, airline);
         airlines.push_back(airline);
     }
     sort(airlines.begin(), airlines.end());
@@ -67,9 +69,9 @@ void Manager::buildFlights() {
         getline(info, source, ',');
         getline(info, target, ',');
         getline(info, airline, ',');
-        Airport sourceAirport = findAirport(source);
-        Airport targetAirport = findAirport(target);
-        Airlines takenAirline = findAirlines(airline);
+        Airport sourceAirport = airportsHash.get(source);
+        Airport targetAirport = airportsHash.get(target);
+        Airlines takenAirline = airlinesHash.get(airline);
         cities.insert(targetAirport.getCity());
         cities.insert(sourceAirport.getCity());
         airportsGraph.addEdge(sourceAirport, targetAirport, takenAirline);

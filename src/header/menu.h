@@ -10,10 +10,6 @@ class Menu {
 private:
     Manager manager;
 public:
-    /**
-     *
-     * @param manager
-     */
     Menu(Manager manager);
     void startMenu();
     void startOption1Menu();

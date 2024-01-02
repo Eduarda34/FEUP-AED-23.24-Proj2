@@ -6,6 +6,7 @@
 #include <vector>
 #include <queue>
 #include "airlines.h"
+#include "hashTable.h"
 
 using namespace std;
 
@@ -54,28 +55,16 @@ public:
 
 template <class T>
 class Graph {
+    HashTable<Airport, int> vertexesHash;
     vector<Vertex<T> *> vertexSet;    // vertex set
     void dfsVisit(Vertex<T> *v,  vector<T> & res) const;
     bool dfsIsDAG(Vertex<T> *v) const;
+    int i = 0;
 public:
     Vertex<T> *findVertex(const T &in) const;
     int getNumVertex() const;
-
-    /**
-     * @brief adds a vertex to the graph
-     * @param in
-     * @return "true" if insertion occurs
-     */
     bool addVertex(const T &in);
     bool removeVertex(const T &in);
-
-    /**
-     * @brief adds an edge to a vertex of the graph
-     * @param sourc
-     * @param dest
-     * @param w
-     * @return
-     */
     bool addEdge(const T &sourc, const T &dest, Airlines w);
     bool removeEdge(const T &sourc, const T &dest);
     vector<Vertex<T> * > getVertexSet() const;
@@ -256,7 +245,9 @@ template <class T>
 bool Graph<T>::addVertex(const T &in) {
     if ( findVertex(in) != NULL)
         return false;
+
     vertexSet.push_back(new Vertex<T>(in));
+    i++;
     return true;
 }
 template <class T>

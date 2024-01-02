@@ -12,6 +12,7 @@ add_executable(airport
         src/data.cpp
         src/header/graph.h
         src/header/menu.h
-        src/menu.cpp)
+        src/menu.cpp
+        src/header/hashTable.h)
 
 
