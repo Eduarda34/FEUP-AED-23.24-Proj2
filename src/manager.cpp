@@ -307,13 +307,13 @@ Airport Manager::findAirportByName(string name) {
     }
 }
 set<Airport> Manager::findAirportsByCity(string city) {
-    set<Airport> airports;
+    set<Airport> airports2;
     for (auto a : airports){
         if (a.getCity() == city){
-            airports.insert(a);
+            airports2.insert(a);
         }
     }
-    return airports;
+    return airports2;
 }
 
 set<Airport> Manager::reachableAirports(string code, int n) {
@@ -344,19 +344,23 @@ set<Airport> Manager::findReachableAirports(int n, set<Airport> a) {
 }
 
 
-    vector<vector<Airport>> Manager::bestFLight(set<Airport> a1, set<Airport> a2, vector<string> edges) {
+    set<vector<Airport>> Manager::bestFLight(set<Airport> a1, set<Airport> a2, vector<string> edges) {
     int stops = INT32_MAX;
-    vector<vector<Airport>> res;
+    set<vector<Airport>> res;
     for (auto a : a1) {
         for (auto b : a2) {
             auto currentPath = airportsGraph.newBfs(a, b, edges);
-            if (currentPath.size() < stops) {
-                stops = currentPath.size();
+            if (currentPath[0].size() < stops) {
+                stops = currentPath[0].size();
                 res.clear();
-                res.push_back(currentPath);
+                for (auto d : currentPath) {
+                    res.insert(d);
+                }
             }
-            else if (currentPath.size() == stops) {
-                res.push_back(currentPath);
+            else if (currentPath[0].size() == stops) {
+                for (auto c : currentPath) {
+                    res.insert(c);
+                }
             }
         }
     }

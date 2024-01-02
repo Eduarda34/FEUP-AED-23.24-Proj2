@@ -255,7 +255,7 @@ void Menu::startOption6Menu() {
     switch (option) {
         case 1:
             cout << "Insert the name of the city" << endl;
-            getline(std::cin>>ws, input);
+            getline(cin>>ws, input);
             for (auto a: manager.findAirportsByCity(input)) {
                 airports1.insert(a);
             }
@@ -307,7 +307,7 @@ void Menu::startOption7Menu() {
     switch (option) {
         case 1:
             cout << "Insert the name of the city" << endl;
-            getline(std::cin>>ws, input);
+            getline(cin>>ws, input);
             for (auto a: manager.findAirportsByCity(input)) {
                 airports2.insert(a);
             }
@@ -383,6 +383,7 @@ Menu::Menu(Manager manager) {
 }
 
 void Menu::startOption4Menu() {
+    edges.clear();
    int option;
    string input;
    vector <string> inputs;
@@ -425,12 +426,9 @@ void Menu::startOption4Menu() {
                     break;
             }
             startOption6Menu();
-            start();
-            startMenu();
             break;
         case 2:
             startOption6Menu();
-            startMenu();
             break;
         default:
             startMenu();

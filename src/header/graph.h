@@ -87,7 +87,7 @@ public:
 
     vector<Airport> newBfs(const T &source, const T &dest, vector<Edge<T>> edges) const;
 
-    vector<Airport> newBfs(const T &source, const T &dest, vector<string> edges) const;
+    vector<vector<Airport>> newBfs(const T &source, const T &dest, vector<string> edges) const;
 };
 
 
@@ -145,39 +145,49 @@ vector<pair<Vertex<T> *, int>> Graph<T>::LongestBfs( T source)  {
 
 
 template <class T>
-vector<Airport> Graph<T>::newBfs(const T & source, const T & dest, vector<string> edges) const {
+vector<vector<Airport>> Graph<T>::newBfs(const T & source, const T & dest, vector<string> edges) const {
+    vector<vector<Airport>> res;
+    res.clear();
+    int stops = INT32_MAX;
+    int flag = 0;
     auto s = findVertex(source);
     auto d = findVertex(dest);
     queue<pair<Vertex<T> *, vector<Airport>>> q;
     for (auto f : vertexSet)
         f->visited = false;
-    vector<Airport> res;
-    q.push({s,res});
+    q.push({s,{}});
     s->visited = true;
     while (!q.empty()) {
         auto v = q.front();
+        v.first->visited = true;
+        if (v.second.size() > stops){
+            return res;
+        }
         q.pop();
         v.second.push_back(v.first->info);
         if (v.first == d) {
-            return v.second;
+            if (v.second.size() < stops){
+                res.clear();
+                res.push_back(v.second);
+                stops = v.second.size();
+            }
+            else if (v.second.size() == stops){
+                res.push_back(v.second);
+            }
         }
         for (auto &e: v.first->adj) {
-            if (edges.empty()){
-                    auto w = e.dest;
-                    if (!w->visited) {
-                        q.push({w, v.second});
-                        w->visited = true;
-                    }
-            }
-            else for (auto s: edges) {
-                    if (e.weight.getCode() != s) {
-                        auto w = e.dest;
-                        if (!w->visited) {
-                            q.push({w, v.second});
-                            w->visited = true;
-                        }
-                    }
+            flag = 0;
+            for (auto s: edges) {
+                if (e.weight.getCode() == s) {
+                    flag = 1;
                 }
+            }
+            if (flag == 0) {
+                auto w = e.dest;
+                if (!w->visited) {
+                    q.push({w, v.second});
+                }
+            }
             }
         }
     }

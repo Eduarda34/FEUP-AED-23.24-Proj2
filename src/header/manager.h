@@ -116,7 +116,7 @@ public:
     vector<Airport> bestFLight(Airport a1, Airport a2);
 
 
-    vector<vector<Airport>> bestFLight(set<Airport> a1, set<Airport> a2, vector<string> edges);
+    set<vector<Airport>> bestFLight(set<Airport> a1, set<Airport> a2, vector<string> edges);
 
     vector<Airlines> getAirlines();
 };
