@@ -29,53 +29,63 @@
 \DoxyCodeLine{33     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_manager_a4dde09bdd2c61b3f8a4cf6fc10315882}{buildAirlines}}();}
 \DoxyCodeLine{34 }
 \DoxyCodeLine{39     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_manager_a2380bf781e5f86303884e86b29700e59}{buildFlights}}();}
-\DoxyCodeLine{40     vector<Airport> getAirports();}
-\DoxyCodeLine{41     \mbox{\hyperlink{class_airport}{Airport}} findAirport(\textcolor{keywordtype}{string} code);}
-\DoxyCodeLine{42     \mbox{\hyperlink{class_airport}{Airport}} findAirportByName(\textcolor{keywordtype}{string} name);}
-\DoxyCodeLine{43     \mbox{\hyperlink{class_airlines}{Airlines}} findAirlines(\textcolor{keywordtype}{string} name);}
-\DoxyCodeLine{44     list<string> airportFromCountry(\textcolor{keywordtype}{string} country);}
-\DoxyCodeLine{45     \textcolor{keywordtype}{int} numberAirports();}
-\DoxyCodeLine{46     \textcolor{keywordtype}{int} numberFlights();}
-\DoxyCodeLine{47 }
-\DoxyCodeLine{54     vector<Edge<Airport>> \mbox{\hyperlink{class_manager_a6e49eaef2d967d59de82ff0ff688dce5}{getFlightsOutAnAirportByName}}(\textcolor{keywordtype}{string} name);}
-\DoxyCodeLine{55 }
-\DoxyCodeLine{62     vector<Edge<Airport>> \mbox{\hyperlink{class_manager_a7baeabcf6952a1e0e3ff80d65f6f685b}{getFlightsOutAnAirportByCode}}(\textcolor{keywordtype}{string} code);}
-\DoxyCodeLine{63 }
-\DoxyCodeLine{69     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_manager_aa80fe9e6ef85d8977770e3c54b9a7554}{getNumberOfFlightsOutAnAirportByName}}(\textcolor{keywordtype}{string} name);}
-\DoxyCodeLine{70 }
-\DoxyCodeLine{76     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_manager_a64b17a62fd013e9b5dcc9b064eceaf2f}{getNumberOfFlightsOutAnAirportByCode}}(\textcolor{keywordtype}{string} code);}
-\DoxyCodeLine{77     \textcolor{keywordtype}{int} getNumberOfAirlinesOutAnAirportByName(\textcolor{keywordtype}{string} name);}
-\DoxyCodeLine{78 }
-\DoxyCodeLine{84     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_manager_a8d3b142e2c026c39e63a1c4171773d56}{getNumberOfAirlinesOutAnAirportByCode}}(\textcolor{keywordtype}{string} code);}
-\DoxyCodeLine{85     \textcolor{keywordtype}{int} numberOfFlightsOutOfTheCity(\textcolor{keywordtype}{string} city);}
-\DoxyCodeLine{86     \textcolor{keywordtype}{int} numberOfFlightIntoTheCity(\textcolor{keywordtype}{string} city);}
-\DoxyCodeLine{87     \textcolor{keywordtype}{int} numberOfFlightsPerAirlineName(\textcolor{keywordtype}{string} name);}
-\DoxyCodeLine{88     \textcolor{keywordtype}{int} numberOfFlightsPerAirlineCode(\textcolor{keywordtype}{string} code);}
-\DoxyCodeLine{89 }
-\DoxyCodeLine{95     set<string> \mbox{\hyperlink{class_manager_ac5e94c5d5bc5a2489b349774587bbed3}{findCountries}}(set<Airport> airports);}
-\DoxyCodeLine{96     set<string> countriesFromAirport(\textcolor{keywordtype}{string} acode);}
-\DoxyCodeLine{97 }
-\DoxyCodeLine{103     set<string> \mbox{\hyperlink{class_manager_afeeb66da92676281ee67d7517bd08096}{findCities}}(set<Airport> airports);}
-\DoxyCodeLine{104     set<Airport> airportDest(\mbox{\hyperlink{class_airport}{Airport}} airport);}
-\DoxyCodeLine{105     set<Airport> reachableAirports(\textcolor{keywordtype}{string} code, \textcolor{keywordtype}{int} n);}
-\DoxyCodeLine{106     set<Airport> findReachableAirports(\textcolor{keywordtype}{int} n, set<Airport> a);}
-\DoxyCodeLine{107     set<string> reachableCities(\textcolor{keywordtype}{string} code, \textcolor{keywordtype}{int} n);}
-\DoxyCodeLine{108     set<string> reachableCountries(\textcolor{keywordtype}{string} code, \textcolor{keywordtype}{int} n);}
-\DoxyCodeLine{109     vector<vector<Airport>> bestFLight(set<Airport> a1, set<Airport> a2);}
-\DoxyCodeLine{110     vector<pair<Airport, int>> getTraffic();}
-\DoxyCodeLine{111     \textcolor{keywordtype}{void} dfsArticulationPoints(\mbox{\hyperlink{class_vertex}{Vertex<Airport>}}* v, \mbox{\hyperlink{class_vertex}{Vertex<Airport>}}* parent, set<Airport>\& articulationPoints, map<Airport, int>\& disc, map<Airport, int>\& low);}
-\DoxyCodeLine{112     set<Airport> findArticulationPoints();}
-\DoxyCodeLine{113     set<Airport> findAirportsByCity(\textcolor{keywordtype}{string} city);}
-\DoxyCodeLine{114     pair<vector<pair<Airport, Airport>>, \textcolor{keywordtype}{int}> longestTrips();}
-\DoxyCodeLine{115 }
-\DoxyCodeLine{116     vector<Airport> bestFLight(\mbox{\hyperlink{class_airport}{Airport}} a1, \mbox{\hyperlink{class_airport}{Airport}} a2);}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{44     vector<Airport> \mbox{\hyperlink{class_manager_a6f8e8d371c40c75265cee2da00746b46}{getAirports}}();}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{51     \mbox{\hyperlink{class_airport}{Airport}} \mbox{\hyperlink{class_manager_a5f96f1f8dde4b32a52ed3a41e8daae3a}{findAirport}}(\textcolor{keywordtype}{string} code);}
+\DoxyCodeLine{52     \mbox{\hyperlink{class_airport}{Airport}} findAirportByName(\textcolor{keywordtype}{string} name);}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{59     \mbox{\hyperlink{class_airlines}{Airlines}} \mbox{\hyperlink{class_manager_adf29e14f85469ed663d3634851e763ad}{findAirlines}}(\textcolor{keywordtype}{string} name);}
+\DoxyCodeLine{60     list<string> airportFromCountry(\textcolor{keywordtype}{string} country);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{65     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_manager_a10e248efe243f3505324915ec6943452}{numberAirports}}();}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{71     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_manager_a1c040967266e37f4d655b9a630b52c44}{numberFlights}}();}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{79     vector<Edge<Airport>> \mbox{\hyperlink{class_manager_a6e49eaef2d967d59de82ff0ff688dce5}{getFlightsOutAnAirportByName}}(\textcolor{keywordtype}{string} name);}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{87     vector<Edge<Airport>> \mbox{\hyperlink{class_manager_a7baeabcf6952a1e0e3ff80d65f6f685b}{getFlightsOutAnAirportByCode}}(\textcolor{keywordtype}{string} code);}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{94     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_manager_aa80fe9e6ef85d8977770e3c54b9a7554}{getNumberOfFlightsOutAnAirportByName}}(\textcolor{keywordtype}{string} name);}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{101     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_manager_a64b17a62fd013e9b5dcc9b064eceaf2f}{getNumberOfFlightsOutAnAirportByCode}}(\textcolor{keywordtype}{string} code);}
+\DoxyCodeLine{102     \textcolor{keywordtype}{int} getNumberOfAirlinesOutAnAirportByName(\textcolor{keywordtype}{string} name);}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{109     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_manager_a8d3b142e2c026c39e63a1c4171773d56}{getNumberOfAirlinesOutAnAirportByCode}}(\textcolor{keywordtype}{string} code);}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{116     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_manager_a614645a7a25d33431d91406aae993008}{numberOfFlightsOutOfTheCity}}(\textcolor{keywordtype}{string} city);}
 \DoxyCodeLine{117 }
-\DoxyCodeLine{118 }
-\DoxyCodeLine{119     set<vector<Airport>> bestFLight(set<Airport> a1, set<Airport> a2, vector<string> edges);}
-\DoxyCodeLine{120 }
-\DoxyCodeLine{121     vector<Airlines> getAirlines();}
-\DoxyCodeLine{122 \};}
-\DoxyCodeLine{123 }
-\DoxyCodeLine{124 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJECT2\_MANAGER\_H}}
+\DoxyCodeLine{123     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_manager_a3e21048d57298021e939c1297944fcbc}{numberOfFlightIntoTheCity}}(\textcolor{keywordtype}{string} city);}
+\DoxyCodeLine{124     \textcolor{keywordtype}{int} numberOfFlightsPerAirlineName(\textcolor{keywordtype}{string} name);}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{131     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_manager_afb4096c32000657fa3f53d33a45a065b}{numberOfFlightsPerAirlineCode}}(\textcolor{keywordtype}{string} code);}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{137     set<string> \mbox{\hyperlink{class_manager_ac5e94c5d5bc5a2489b349774587bbed3}{findCountries}}(set<Airport> airports);}
+\DoxyCodeLine{138     set<string> countriesFromAirport(\textcolor{keywordtype}{string} acode);}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{145     set<string> \mbox{\hyperlink{class_manager_afeeb66da92676281ee67d7517bd08096}{findCities}}(set<Airport> airports);}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{152     set<Airport> \mbox{\hyperlink{class_manager_ab107c458973560ce33d7f4e8223158b1}{airportDest}}(\mbox{\hyperlink{class_airport}{Airport}} airport);}
+\DoxyCodeLine{153     set<Airport> reachableAirports(\textcolor{keywordtype}{string} code, \textcolor{keywordtype}{int} n);}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{161     set<Airport> \mbox{\hyperlink{class_manager_aac8c7afa07a48724b5ffeb16154658e2}{findReachableAirports}}(\textcolor{keywordtype}{int} n, set<Airport> a);}
+\DoxyCodeLine{162     set<string> reachableCities(\textcolor{keywordtype}{string} code, \textcolor{keywordtype}{int} n);}
+\DoxyCodeLine{163     set<string> reachableCountries(\textcolor{keywordtype}{string} code, \textcolor{keywordtype}{int} n);}
+\DoxyCodeLine{164     vector<vector<Airport>> bestFLight(set<Airport> a1, set<Airport> a2);}
+\DoxyCodeLine{165     vector<pair<Airport, int>> getTraffic();}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{175     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_manager_aba44582698c51f55ebd6735ebf5234fa}{dfsArticulationPoints}}(\mbox{\hyperlink{class_vertex}{Vertex<Airport>}}* v, \mbox{\hyperlink{class_vertex}{Vertex<Airport>}}* parent, set<Airport>\& articulationPoints, map<Airport, int>\& disc, map<Airport, int>\& low);}
+\DoxyCodeLine{176     set<Airport> findArticulationPoints();}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{183     set<Airport> \mbox{\hyperlink{class_manager_afae3ccba2e986829e78472ac76bebd32}{findAirportsByCity}}(\textcolor{keywordtype}{string} city);}
+\DoxyCodeLine{184     pair<vector<pair<Airport, Airport>>, \textcolor{keywordtype}{int}> longestTrips();}
+\DoxyCodeLine{185     vector<Airport> bestFLight(\mbox{\hyperlink{class_airport}{Airport}} a1, \mbox{\hyperlink{class_airport}{Airport}} a2);}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{194     set<vector<Airport>> \mbox{\hyperlink{class_manager_a87a0c9d31da6212bedac60b88136a6af}{bestFLight}}(set<Airport> a1, set<Airport> a2, vector<string> edges);}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{201     vector<Airlines> \mbox{\hyperlink{class_manager_aa8045c09c2d70ef0c86b464bcc387eec}{getAirlines}}();}
+\DoxyCodeLine{202 \};}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJECT2\_MANAGER\_H}}
 
 \end{DoxyCode}

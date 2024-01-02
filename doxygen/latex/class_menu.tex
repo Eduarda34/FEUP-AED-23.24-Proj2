@@ -9,19 +9,18 @@ void \mbox{\hyperlink{class_menu_a1d7274d4dea9acab05bfa3267d19b772}{start\+Menu}
 \item 
 \mbox{\Hypertarget{class_menu_a1a480bfb1869df934d14300b795cd5b3}\label{class_menu_a1a480bfb1869df934d14300b795cd5b3}} 
 void {\bfseries start\+Option1\+Menu} ()
-\item 
+\begin{DoxyCompactList}\small\item\em displays menu to the user \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_menu_a9dda5371a2dd2ebf182d57e0b6af037a}\label{class_menu_a9dda5371a2dd2ebf182d57e0b6af037a}} 
 void {\bfseries start\+Option2\+Menu} ()
-\item 
+\begin{DoxyCompactList}\small\item\em prompts the user for the name or code of an airport and calls another function to continue the program \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_menu_aefc524bf0f039bfdbb473bfec40c1b62}\label{class_menu_aefc524bf0f039bfdbb473bfec40c1b62}} 
 void {\bfseries start\+Option4\+Menu} ()
-\item 
-\mbox{\Hypertarget{class_menu_a23a45a394d6059bcea11cc0e038f8fd2}\label{class_menu_a23a45a394d6059bcea11cc0e038f8fd2}} 
-void {\bfseries start\+Option3\+Menu} (\mbox{\hyperlink{class_airport}{Airport}} a)
-\item 
+\begin{DoxyCompactList}\small\item\em filter or select airlines and prepare a set of information to be used later \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_a23a45a394d6059bcea11cc0e038f8fd2}{start\+Option3\+Menu}} (\mbox{\hyperlink{class_airport}{Airport}} a)
+\begin{DoxyCompactList}\small\item\em display a specific menu related to different information about an airport provided as an argument \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_menu_adec2256db37513d510dd5ed3613475b2}\label{class_menu_adec2256db37513d510dd5ed3613475b2}} 
 void {\bfseries start\+Option5\+Menu} ()
-\item 
+\begin{DoxyCompactList}\small\item\em check the number of flights based on a city or airline \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_menu_acaaddffe592e470bf0688cf21c78239b}\label{class_menu_acaaddffe592e470bf0688cf21c78239b}} 
 void {\bfseries start\+Option6\+Menu} (set$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ airports)
 \item 
@@ -30,7 +29,7 @@ void {\bfseries start} ()
 \item 
 \mbox{\Hypertarget{class_menu_aea4995b264796a0b401b8e64f59009a2}\label{class_menu_aea4995b264796a0b401b8e64f59009a2}} 
 void {\bfseries start\+Option7\+Menu} ()
-\item 
+\begin{DoxyCompactList}\small\item\em presents options to the user related to destinations (city name, airport code or coordinates) \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_menu_ac8898625f694d2de2344fa5a13b765bd}\label{class_menu_ac8898625f694d2de2344fa5a13b765bd}} 
 void {\bfseries start\+Option8\+Menu} ()
 \item 
@@ -42,7 +41,7 @@ void {\bfseries start\+Option4\+Menu} (vector$<$ string $>$ edges)
 \item 
 \mbox{\Hypertarget{class_menu_a12ee23ffea7d087ba181589c04ce5691}\label{class_menu_a12ee23ffea7d087ba181589c04ce5691}} 
 void {\bfseries start\+Option6\+Menu} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em read the user choice to define the origin of the flight (by city name, airport code or coordinates) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -66,7 +65,22 @@ void {\bfseries start\+Option6\+Menu} ()
 \doxysubsubsection{\texorpdfstring{startMenu()}{startMenu()}}
 {\footnotesize\ttfamily void Menu\+::start\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-start the menu 
+start the menu \mbox{\Hypertarget{class_menu_a23a45a394d6059bcea11cc0e038f8fd2}\label{class_menu_a23a45a394d6059bcea11cc0e038f8fd2}} 
+\index{Menu@{Menu}!startOption3Menu@{startOption3Menu}}
+\index{startOption3Menu@{startOption3Menu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{startOption3Menu()}{startOption3Menu()}}
+{\footnotesize\ttfamily void Menu\+::start\+Option3\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_airport}{Airport}}}]{a }\end{DoxyParamCaption})}
+
+
+
+display a specific menu related to different information about an airport provided as an argument 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \\
+\hline
+\end{DoxyParams}
+
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

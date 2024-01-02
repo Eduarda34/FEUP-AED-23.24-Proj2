@@ -3,8 +3,7 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_coordinate_ab8c4ba28967b1db93d4282b3606c3564}\label{class_coordinate_ab8c4ba28967b1db93d4282b3606c3564}} 
-{\bfseries Coordinate} (double lati, double longi)
+\mbox{\hyperlink{class_coordinate_ab8c4ba28967b1db93d4282b3606c3564}{Coordinate}} (double lati, double longi)
 \item 
 \mbox{\Hypertarget{class_coordinate_a1d60396a100cb81221cd186b0cba9f3e}\label{class_coordinate_a1d60396a100cb81221cd186b0cba9f3e}} 
 double {\bfseries get\+Lati} ()
@@ -19,24 +18,41 @@ void {\bfseries set\+Lati} (double lati)
 void {\bfseries set\+Longi} (double longi)
 \item 
 double \mbox{\hyperlink{class_coordinate_a659f6562993fe998cffe3e57022d32a7}{distance}} (\mbox{\hyperlink{class_coordinate}{Coordinate}} c)
+\begin{DoxyCompactList}\small\item\em calculates the distance between two geographic coordinates \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_coordinate}{Coordinate}} \mbox{\hyperlink{class_coordinate_ab57ead14ca52bb41eaadd67108c39693}{closest}} (vector$<$ \mbox{\hyperlink{class_coordinate}{Coordinate}} $>$ c)
+\begin{DoxyCompactList}\small\item\em find the closest point \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_coordinate_a950b79b7fc8b70eabc50d1e2b2f1eede}{operator==}} (const \mbox{\hyperlink{class_coordinate}{Coordinate}} e) const
 \item 
-\mbox{\Hypertarget{class_coordinate_ab57ead14ca52bb41eaadd67108c39693}\label{class_coordinate_ab57ead14ca52bb41eaadd67108c39693}} 
-\mbox{\hyperlink{class_coordinate}{Coordinate}} {\bfseries closest} (vector$<$ \mbox{\hyperlink{class_coordinate}{Coordinate}} $>$ c)
-\item 
-\mbox{\Hypertarget{class_coordinate_a950b79b7fc8b70eabc50d1e2b2f1eede}\label{class_coordinate_a950b79b7fc8b70eabc50d1e2b2f1eede}} 
-bool {\bfseries operator==} (const \mbox{\hyperlink{class_coordinate}{Coordinate}} e) const
-\item 
-\mbox{\Hypertarget{class_coordinate_a163069592f8e040d4a9a960c9849f288}\label{class_coordinate_a163069592f8e040d4a9a960c9849f288}} 
-double {\bfseries convert} (const double angle)
-\end{DoxyCompactItemize}
+double \mbox{\hyperlink{class_coordinate_a163069592f8e040d4a9a960c9849f288}{convert}} (const double angle)
+\begin{DoxyCompactList}\small\item\em converts an angle in degrees to radians \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_coordinate_ab8c4ba28967b1db93d4282b3606c3564}\label{class_coordinate_ab8c4ba28967b1db93d4282b3606c3564}} 
+\index{Coordinate@{Coordinate}!Coordinate@{Coordinate}}
+\index{Coordinate@{Coordinate}!Coordinate@{Coordinate}}
+\doxysubsubsection{\texorpdfstring{Coordinate()}{Coordinate()}}
+{\footnotesize\ttfamily Coordinate\+::\+Coordinate (\begin{DoxyParamCaption}\item[{double}]{lati,  }\item[{double}]{longi }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em lati} & latitude of the airport \\
+\hline
+{\em longi} & longitude of the airport \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_coordinate_a659f6562993fe998cffe3e57022d32a7}\label{class_coordinate_a659f6562993fe998cffe3e57022d32a7}} 
-\index{Coordinate@{Coordinate}!distance@{distance}}
-\index{distance@{distance}!Coordinate@{Coordinate}}
-\doxysubsubsection{\texorpdfstring{distance()}{distance()}}
-{\footnotesize\ttfamily double Coordinate\+::distance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_coordinate}{Coordinate}}}]{c }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{class_coordinate_ab57ead14ca52bb41eaadd67108c39693}\label{class_coordinate_ab57ead14ca52bb41eaadd67108c39693}} 
+\index{Coordinate@{Coordinate}!closest@{closest}}
+\index{closest@{closest}!Coordinate@{Coordinate}}
+\doxysubsubsection{\texorpdfstring{closest()}{closest()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_coordinate}{Coordinate}} Coordinate\+::closest (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{class_coordinate}{Coordinate}} $>$}]{c }\end{DoxyParamCaption})}
+
+
+
+find the closest point 
 
 
 \begin{DoxyParams}{Parameters}
@@ -44,7 +60,57 @@ double {\bfseries convert} (const double angle)
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
+closest one 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_coordinate_a163069592f8e040d4a9a960c9849f288}\label{class_coordinate_a163069592f8e040d4a9a960c9849f288}} 
+\index{Coordinate@{Coordinate}!convert@{convert}}
+\index{convert@{convert}!Coordinate@{Coordinate}}
+\doxysubsubsection{\texorpdfstring{convert()}{convert()}}
+{\footnotesize\ttfamily double Coordinate\+::convert (\begin{DoxyParamCaption}\item[{const double}]{angle }\end{DoxyParamCaption})}
 
+
+
+converts an angle in degrees to radians 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+angle converted to radians 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_coordinate_a659f6562993fe998cffe3e57022d32a7}\label{class_coordinate_a659f6562993fe998cffe3e57022d32a7}} 
+\index{Coordinate@{Coordinate}!distance@{distance}}
+\index{distance@{distance}!Coordinate@{Coordinate}}
+\doxysubsubsection{\texorpdfstring{distance()}{distance()}}
+{\footnotesize\ttfamily double Coordinate\+::distance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_coordinate}{Coordinate}}}]{c }\end{DoxyParamCaption})}
+
+
+
+calculates the distance between two geographic coordinates 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+distance between the two points in kilometers 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_coordinate_a950b79b7fc8b70eabc50d1e2b2f1eede}\label{class_coordinate_a950b79b7fc8b70eabc50d1e2b2f1eede}} 
+\index{Coordinate@{Coordinate}!operator==@{operator==}}
+\index{operator==@{operator==}!Coordinate@{Coordinate}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Coordinate\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_coordinate}{Coordinate}}}]{e }\end{DoxyParamCaption}) const}
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\char`\"{}true\char`\"{} if \textquotesingle{}lati\textquotesingle{} and \textquotesingle{}longi\textquotesingle{} of \mbox{\hyperlink{class_coordinate}{Coordinate}} are equals 
 \end{DoxyReturn}
 
 

@@ -1,12 +1,9 @@
 var searchData=
 [
-  ['getcity_0',['getCity',['../class_airport.html#a7dc058132336ea1b211323730fc44148',1,'Airport']]],
-  ['getcode_1',['getCode',['../class_airlines.html#a28d7807ae004a8528e02401d0f3806f5',1,'Airlines::getCode()'],['../class_airport.html#add9b3ea6f8849f6167f5a70a9280781a',1,'Airport::getCode()']]],
-  ['getcountry_2',['getCountry',['../class_airlines.html#aee521b2503edbc21bca24034b49c007e',1,'Airlines::getCountry()'],['../class_airport.html#a82e555b62c9af6c729a6d3c7fb8ae8c4',1,'Airport::getCountry()']]],
-  ['getflightsoutanairportbycode_3',['getFlightsOutAnAirportByCode',['../class_manager.html#a7baeabcf6952a1e0e3ff80d65f6f685b',1,'Manager']]],
-  ['getflightsoutanairportbyname_4',['getFlightsOutAnAirportByName',['../class_manager.html#a6e49eaef2d967d59de82ff0ff688dce5',1,'Manager']]],
-  ['getname_5',['getName',['../class_airlines.html#a551e958f9d6f2a53c8aaa283dc68a1c8',1,'Airlines::getName()'],['../class_airport.html#a939b886a8a9675e22418f2c9a490bdcb',1,'Airport::getName()']]],
-  ['getnumberofairlinesoutanairportbycode_6',['getNumberOfAirlinesOutAnAirportByCode',['../class_manager.html#a8d3b142e2c026c39e63a1c4171773d56',1,'Manager']]],
-  ['getnumberofflightsoutanairportbycode_7',['getNumberOfFlightsOutAnAirportByCode',['../class_manager.html#a64b17a62fd013e9b5dcc9b064eceaf2f',1,'Manager']]],
-  ['getnumberofflightsoutanairportbyname_8',['getNumberOfFlightsOutAnAirportByName',['../class_manager.html#aa80fe9e6ef85d8977770e3c54b9a7554',1,'Manager']]]
+  ['findairlines_0',['findAirlines',['../class_manager.html#adf29e14f85469ed663d3634851e763ad',1,'Manager']]],
+  ['findairport_1',['findAirport',['../class_manager.html#a5f96f1f8dde4b32a52ed3a41e8daae3a',1,'Manager']]],
+  ['findairportsbycity_2',['findAirportsByCity',['../class_manager.html#afae3ccba2e986829e78472ac76bebd32',1,'Manager']]],
+  ['findcities_3',['findCities',['../class_manager.html#afeeb66da92676281ee67d7517bd08096',1,'Manager']]],
+  ['findcountries_4',['findCountries',['../class_manager.html#ac5e94c5d5bc5a2489b349774587bbed3',1,'Manager']]],
+  ['findreachableairports_5',['findReachableAirports',['../class_manager.html#aac8c7afa07a48724b5ffeb16154658e2',1,'Manager']]]
 ];
