@@ -15,6 +15,9 @@ void Menu::startMenu() {
          << "2 See info about airport" << endl
          << "3 Check number of flights of city/airline "<< endl
          << "4 See best flight option" << endl
+         << "5 Maximum trip" << endl
+         << "6 Top-k Airport with most traffic" << endl
+         << "7 Get essential airports" << endl
          << "(Press any key other to quit)" << endl;
 
     cin >> option;
@@ -28,8 +31,19 @@ void Menu::startMenu() {
             break;
         case 3:
             startOption5Menu();
+            break;
         case 4:
             startOption4Menu();
+            break;
+        case 5:
+            startOption8Menu();
+            break;
+        case 6:
+            startOption9Menu();
+            break;
+        case 7:
+            startOption10Menu();
+            break;
         default:
             break;
     }
@@ -90,7 +104,7 @@ void Menu::startOption2Menu() {
 }
 
 void Menu::startOption3Menu(Airport a) {
-    int option;
+    int option, stops;
     string input;
     cout << "What would you like to do ?" << endl
          << endl
@@ -104,12 +118,12 @@ void Menu::startOption3Menu(Airport a) {
     switch (option) {
         case 1:
             cout << manager.getNumberOfFlightsOutAnAirportByCode(a.getCode());
-            cout << endl <<"End" << endl;
+            cout << endl << "End" << endl;
             startMenu();
             break;
         case 2:
             cout << manager.getNumberOfAirlinesOutAnAirportByCode(a.getCode());
-            cout << endl <<"End" << endl;
+            cout << endl << "End" << endl;
             startMenu();
             break;
         case 3:
@@ -134,11 +148,11 @@ void Menu::startOption3Menu(Airport a) {
                             for (auto a1: manager.airportDest(a)) {
                                 cout << a1.getName() << endl;
                             }
-                            cout << endl <<"End" << endl;
+                            cout << endl << "End" << endl;
                             startMenu();
                             break;
                         default:
-                            cout << endl <<"End" << endl;
+                            cout << endl << "End" << endl;
                             startMenu();
                             break;
                     }
@@ -185,6 +199,38 @@ void Menu::startOption3Menu(Airport a) {
                             break;
                     }
                     break;
+
+            }
+        case 4:
+            cout << "Whats the code of the source airport?" << endl;
+            cin >> input;
+            cout << "How many stops?" << endl;
+            cin >> stops;
+            set<Airport> k = manager.reachableAirports(input, stops);
+            for (auto i: k) {
+                cout << i.getCode() << endl;
+            }
+            cout << k.size() << endl;
+            cout << "Want to see cities or countries?" << endl
+                 << "1 Cities" << endl
+                 << "2 Countries" << endl
+                 << "3 No" << endl;
+            cin >> option;
+            switch(option) {
+                case 1:
+                    for(auto i: manager.findCities(k)) {
+                        cout << i << endl;
+                    }
+                    startMenu();
+                    break;
+                case 2:
+                    for(auto i: manager.findCountries(k)) {
+                        cout << i << endl;
+                    }
+                    startMenu();
+                    break;
+                case 3:
+                    startMenu();
             }
     }
 }
@@ -435,3 +481,26 @@ void Menu::startOption4Menu() {
             break;
     }
 }
+
+void Menu::startOption8Menu() {
+   for (auto i: manager.longestTrips().first) {
+       cout << i.first.getCode() << " -> " << i.second.getCode() << endl;
+   }
+   cout << "Having " << manager.longestTrips().second << " stops" << endl;
+   startMenu();
+}
+
+void Menu::startOption9Menu() {
+    int option;
+    cout << "Whats the value of k?" << endl;
+    cin >> option;
+    cout << manager.getTraffic()[option].first.getCode() << "with " << manager.getTraffic()[option].second << " flights";
+    startMenu();
+}
+void Menu::startOption10Menu() {
+    for (auto i : manager.findArticulationPoints()) {
+        cout << i.getCode() << endl;
+    }
+    cout << manager.findArticulationPoints().size();
+    startMenu();
+};

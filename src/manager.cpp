@@ -377,8 +377,21 @@ vector<pair<Airport, int>> Manager::getTraffic() {
 }
 
 
-set<string> reachableCities(string code);
-set<string> reachableCountries(string code);
+set<string> Manager::reachableCities(string code, int n) {
+    set<string> cities;
+    for (auto i : reachableAirports(code, n)) {
+        cities.insert(i.getCity());
+    }
+    return cities;
+}
+
+set<string> Manager::reachableCountries(string code, int n) {
+    set<string> countires;
+    for (auto i : reachableAirports(code, n)) {
+        cities.insert(i.getCountry());
+    }
+    return cities;
+};
 
 
 

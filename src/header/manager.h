@@ -57,7 +57,6 @@ public:
     set<Airport> findArticulationPoints();
     set<Airport> findAirportsByCity(string city);
     pair<vector<pair<Airport, Airport>>, int> longestTrips();
-
     vector<Airport> bestFLight(Airport a1, Airport a2);
 
 

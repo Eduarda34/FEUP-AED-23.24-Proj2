@@ -7,6 +7,7 @@
 #include <queue>
 #include <cstdint>
 #include "airlines.h"
+#include "airport.h"
 #include "hashTable.h"
 
 using namespace std;
@@ -16,14 +17,13 @@ template <class T> class Graph;
 template <class T> class Vertex;
 
 
-/****************** Provided structures  ********************/
 
 template <class T>
 class Vertex {
-    T info;                // contents
-    vector<Edge<T> > adj;  // list of outgoing edges
-    bool visited = false;          // auxiliary field
-    bool processing;       // auxiliary field
+    T info;               
+    vector<Edge<T> > adj;
+    bool visited = false;
+    bool processing;
 
     void addEdge(Vertex<T> *dest, Airlines w);
     bool removeEdgeTo(Vertex<T> *d);
@@ -56,28 +56,28 @@ public:
 
 template <class T>
 class Graph {
-    HashTable<Airport, int> vertexesHash;
+    HashTable<string, Vertex<Airport>*> vertexesHash;
     vector<Vertex<T> *> vertexSet;    // vertex set
     void dfsVisit(Vertex<T> *v,  vector<T> & res) const;
     bool dfsIsDAG(Vertex<T> *v) const;
     int i = 0;
 public:
-    Vertex<T> *findVertex(const T &in) const;
+    Vertex<T> *findVertex(Airport &in) const;
     int getNumVertex() const;
-    bool addVertex(const T &in);
+    bool addVertex(Airport &in);
     bool removeVertex(const T &in);
-    bool addEdge(const T &sourc, const T &dest, Airlines w);
+    bool addEdge( T &sourc,  T &dest, Airlines w);
     bool removeEdge(const T &sourc, const T &dest);
     vector<Vertex<T> * > getVertexSet() const;
     vector<T> dfs() const;
     vector<T> dfs(const T & source) const;
     vector<T> bfs(const T &source) const;
     vector<pair<Vertex<T> *, int>> LongestBfs( T source);
-    vector<Airport> newBfs(const T &source, const T &dest) const;
+    vector<Airport> newBfs( T &source, T &dest) const;
 
-    vector<Airport> newBfs(const T &source, const T &dest, vector<Edge<T>> edges) const;
+    vector<Airport> newBfs( T &source, T &dest, vector<Edge<T>> edges) const;
 
-    vector<vector<Airport>> newBfs(const T &source, const T &dest, vector<string> edges) const;
+    vector<vector<Airport>> newBfs(T &source, T &dest, vector<string> edges) const;
 };
 
 
@@ -135,7 +135,7 @@ vector<pair<Vertex<T> *, int>> Graph<T>::LongestBfs( T source)  {
 
 
 template <class T>
-vector<vector<Airport>> Graph<T>::newBfs(const T & source, const T & dest, vector<string> edges) const {
+vector<vector<Airport>> Graph<T>::newBfs( T & source, T & dest, vector<string> edges) const {
     vector<vector<Airport>> res;
     res.clear();
     int stops = INT32_MAX;
@@ -182,7 +182,6 @@ vector<vector<Airport>> Graph<T>::newBfs(const T & source, const T & dest, vecto
         }
     }
 
-/****************** Provided constructors and functions ********************/
 
 template <class T>
 Vertex<T>::Vertex(T in): info(in) {}
@@ -241,11 +240,8 @@ void Edge<T>::setWeight(Airlines weight) {
     Edge::weight = weight;
 }
 template <class T>
-Vertex<T> * Graph<T>::findVertex(const T &in) const {
-    for (auto v : vertexSet)
-        if (v->info == in)
-            return v;
-    return NULL;
+Vertex<T> * Graph<T>::findVertex(Airport &in) const {
+    return vertexesHash.get(in.getCode());
 }
 
 template <class T>
@@ -268,16 +264,15 @@ void Vertex<T>::setAdj(const vector<Edge<T>> &adj) {
     Vertex::adj = adj;
 }
 template <class T>
-bool Graph<T>::addVertex(const T &in) {
-    if ( findVertex(in) != NULL)
-        return false;
-
-    vertexSet.push_back(new Vertex<T>(in));
+bool Graph<T>::addVertex(Airport &in) {
+    Vertex<Airport>* a = new Vertex<T>(in);
+    vertexesHash.insert(in.getCode(), a);
+    vertexSet.push_back(a);
     i++;
     return true;
 }
 template <class T>
-bool Graph<T>::addEdge(const T &sourc, const T &dest, Airlines w) {
+bool Graph<T>::addEdge( T &sourc, T &dest, Airlines w) {
     auto v1 = findVertex(sourc);
     auto v2 = findVertex(dest);
     if (v1 == NULL || v2 == NULL)

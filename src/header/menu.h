@@ -32,7 +32,8 @@ public:
     void startOption6Menu(set<Airport> airports, vector<string> edges);
 
     void startOption4Menu(vector<string> edges);
-
+    void startOption9Menu();
+    void startOption10Menu();
     void startOption6Menu();
 };
 #endif //AIRPORT_MENU_H
