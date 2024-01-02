@@ -344,20 +344,22 @@ set<Airport> Manager::findReachableAirports(int n, set<Airport> a) {
 }
 
 
-    vector<Airport> Manager::bestFLight(set<Airport> a1, set<Airport> a2) {
+    vector<vector<Airport>> Manager::bestFLight(set<Airport> a1, set<Airport> a2, vector<string> edges) {
     int stops = INT32_MAX;
-    vector<Airport> res;
-
+    vector<vector<Airport>> res;
     for (auto a : a1) {
         for (auto b : a2) {
-            auto currentPath = airportsGraph.newBfs(a, b);
+            auto currentPath = airportsGraph.newBfs(a, b, edges);
             if (currentPath.size() < stops) {
                 stops = currentPath.size();
-                res = currentPath;
+                res.clear();
+                res.push_back(currentPath);
+            }
+            else if (currentPath.size() == stops) {
+                res.push_back(currentPath);
             }
         }
     }
-
     return res;
 }
 
@@ -431,4 +433,6 @@ pair<vector<pair<Airport, Airport>>, int> Manager::longestTrips() {
     }
     return longestTripsSoFar;
 }
-
+vector<Airlines> Manager::getAirlines(){
+    return this->airlines;
+}

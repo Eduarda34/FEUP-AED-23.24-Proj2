@@ -27,14 +27,14 @@ public:
      * Complexity: O(1)
      * @return name of the airline
      */
-    string getName();
+    string getName() const;
 
     /**
      * @brief returns the code of the airline
      * Complexity: O(1)
      * @return code of the airlines
      */
-    string getCode();
+    string getCode() const;
 
     /**
      * @brief returns the country of the airline

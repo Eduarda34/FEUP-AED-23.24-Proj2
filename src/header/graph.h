@@ -84,6 +84,10 @@ public:
     vector<T> bfs(const T &source) const;
     vector<pair<Vertex<T> *, int>> LongestBfs( T source);
     vector<Airport> newBfs(const T &source, const T &dest) const;
+
+    vector<Airport> newBfs(const T &source, const T &dest, vector<Edge<T>> edges) const;
+
+    vector<Airport> newBfs(const T &source, const T &dest, vector<string> edges) const;
 };
 
 
@@ -141,7 +145,7 @@ vector<pair<Vertex<T> *, int>> Graph<T>::LongestBfs( T source)  {
 
 
 template <class T>
-vector<Airport> Graph<T>::newBfs(const T & source, const T & dest) const {
+vector<Airport> Graph<T>::newBfs(const T & source, const T & dest, vector<string> edges) const {
     auto s = findVertex(source);
     auto d = findVertex(dest);
     queue<pair<Vertex<T> *, vector<Airport>>> q;
@@ -157,15 +161,26 @@ vector<Airport> Graph<T>::newBfs(const T & source, const T & dest) const {
         if (v.first == d) {
             return v.second;
         }
-        for (auto & e : v.first->adj) {
-            auto w = e.dest;
-            if ( ! w->visited ) {
-                q.push({w, v.second});
-                w->visited = true;
+        for (auto &e: v.first->adj) {
+            if (edges.empty()){
+                    auto w = e.dest;
+                    if (!w->visited) {
+                        q.push({w, v.second});
+                        w->visited = true;
+                    }
+            }
+            else for (auto s: edges) {
+                    if (e.weight.getCode() != s) {
+                        auto w = e.dest;
+                        if (!w->visited) {
+                            q.push({w, v.second});
+                            w->visited = true;
+                        }
+                    }
+                }
             }
         }
     }
-}
 
 /****************** Provided constructors and functions ********************/
 

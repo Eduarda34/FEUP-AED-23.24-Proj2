@@ -13,11 +13,11 @@ Airlines::Airlines(string name, string code,string callsign, string country) {
     this->callsign = callsign;
 }
 
-string Airlines::getCode() {
+string Airlines::getCode() const {
     return this->code;
 }
 
-string Airlines::getName() {
+string Airlines::getName() const {
     return this->name;
 }
 
