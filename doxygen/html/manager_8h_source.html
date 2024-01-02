@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Projeto 2: src/header/manager.h Source File</title>
+<title>Projeot 2: src/header/manager.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Projeto 2
+   <div id="projectname">Projeot 2
    </div>
   </td>
  </tr>
@@ -128,7 +128,7 @@ $(function() {
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    set&lt;Airport&gt; findReachableAirports(<span class="keywordtype">int</span> n, set&lt;Airport&gt; a);</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    set&lt;string&gt; reachableCities(<span class="keywordtype">string</span> code, <span class="keywordtype">int</span> n);</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    set&lt;string&gt; reachableCountries(<span class="keywordtype">string</span> code, <span class="keywordtype">int</span> n);</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    vector&lt;Airport&gt; bestFLight(set&lt;Airport&gt; a1, set&lt;Airport&gt; a2);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    vector&lt;vector&lt;Airport&gt;&gt; bestFLight(set&lt;Airport&gt; a1, set&lt;Airport&gt; a2);</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    vector&lt;pair&lt;Airport, int&gt;&gt; getTraffic();</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordtype">void</span> dfsArticulationPoints(<a class="code hl_class" href="class_vertex.html">Vertex&lt;Airport&gt;</a>* v, <a class="code hl_class" href="class_vertex.html">Vertex&lt;Airport&gt;</a>* parent, set&lt;Airport&gt;&amp; articulationPoints, map&lt;Airport, int&gt;&amp; disc, map&lt;Airport, int&gt;&amp; low);</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    set&lt;Airport&gt; findArticulationPoints();</div>
@@ -136,9 +136,14 @@ $(function() {
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    pair&lt;vector&lt;pair&lt;Airport, Airport&gt;&gt;, <span class="keywordtype">int</span>&gt; longestTrips();</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    vector&lt;Airport&gt; bestFLight(<a class="code hl_class" href="class_airport.html">Airport</a> a1, <a class="code hl_class" href="class_airport.html">Airport</a> a2);</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>};</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="preprocessor">#endif </span><span class="comment">//PROJECT2_MANAGER_H</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    set&lt;vector&lt;Airport&gt;&gt; bestFLight(set&lt;Airport&gt; a1, set&lt;Airport&gt; a2, vector&lt;string&gt; edges);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    vector&lt;Airlines&gt; getAirlines();</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>};</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="preprocessor">#endif </span><span class="comment">//PROJECT2_MANAGER_H</span></div>
 <div class="ttc" id="aclass_airlines_html"><div class="ttname"><a href="class_airlines.html">Airlines</a></div><div class="ttdef"><b>Definition:</b> airlines.h:8</div></div>
 <div class="ttc" id="aclass_airport_html"><div class="ttname"><a href="class_airport.html">Airport</a></div><div class="ttdef"><b>Definition:</b> airport.h:10</div></div>
 <div class="ttc" id="aclass_graph_html"><div class="ttname"><a href="class_graph.html">Graph</a></div><div class="ttdef"><b>Definition:</b> graph.h:56</div></div>

@@ -18,6 +18,10 @@ public:
      * @param manager
      */
     Menu(Manager manager);
+
+    /**
+     * start the menu
+     */
     void startMenu();
     void startOption1Menu();
     void startOption2Menu();
@@ -25,11 +29,8 @@ public:
     void startOption3Menu(Airport a);
     void startOption5Menu();
     void startOption6Menu(set<Airport> airports);
-
     void start();
-
     void startOption7Menu();
-
     void startOption8Menu();
 
     void startOption6Menu(set<Airport> airports, vector<string> edges);

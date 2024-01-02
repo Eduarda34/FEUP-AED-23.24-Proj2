@@ -61,7 +61,7 @@
 \DoxyCodeLine{106     set<Airport> findReachableAirports(\textcolor{keywordtype}{int} n, set<Airport> a);}
 \DoxyCodeLine{107     set<string> reachableCities(\textcolor{keywordtype}{string} code, \textcolor{keywordtype}{int} n);}
 \DoxyCodeLine{108     set<string> reachableCountries(\textcolor{keywordtype}{string} code, \textcolor{keywordtype}{int} n);}
-\DoxyCodeLine{109     vector<Airport> bestFLight(set<Airport> a1, set<Airport> a2);}
+\DoxyCodeLine{109     vector<vector<Airport>> bestFLight(set<Airport> a1, set<Airport> a2);}
 \DoxyCodeLine{110     vector<pair<Airport, int>> getTraffic();}
 \DoxyCodeLine{111     \textcolor{keywordtype}{void} dfsArticulationPoints(\mbox{\hyperlink{class_vertex}{Vertex<Airport>}}* v, \mbox{\hyperlink{class_vertex}{Vertex<Airport>}}* parent, set<Airport>\& articulationPoints, map<Airport, int>\& disc, map<Airport, int>\& low);}
 \DoxyCodeLine{112     set<Airport> findArticulationPoints();}
@@ -69,8 +69,13 @@
 \DoxyCodeLine{114     pair<vector<pair<Airport, Airport>>, \textcolor{keywordtype}{int}> longestTrips();}
 \DoxyCodeLine{115 }
 \DoxyCodeLine{116     vector<Airport> bestFLight(\mbox{\hyperlink{class_airport}{Airport}} a1, \mbox{\hyperlink{class_airport}{Airport}} a2);}
-\DoxyCodeLine{117 \};}
+\DoxyCodeLine{117 }
 \DoxyCodeLine{118 }
-\DoxyCodeLine{119 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJECT2\_MANAGER\_H}}
+\DoxyCodeLine{119     set<vector<Airport>> bestFLight(set<Airport> a1, set<Airport> a2, vector<string> edges);}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121     vector<Airlines> getAirlines();}
+\DoxyCodeLine{122 \};}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJECT2\_MANAGER\_H}}
 
 \end{DoxyCode}
