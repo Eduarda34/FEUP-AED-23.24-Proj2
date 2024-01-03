@@ -62,7 +62,7 @@ class Graph {
     bool dfsIsDAG(Vertex<T> *v) const;
     int i = 0;
 public:
-    Vertex<T> *findVertex(Airport &in) const;
+    Vertex<T> *findVertex(Airport in) const;
     int getNumVertex() const;
     bool addVertex(Airport &in);
     bool removeVertex(const T &in);
@@ -269,7 +269,7 @@ void Edge<T>::setWeight(Airlines weight) {
     Edge::weight = weight;
 }
 template <class T>
-Vertex<T> * Graph<T>::findVertex(Airport &in) const {
+Vertex<T> * Graph<T>::findVertex(Airport in) const {
     return vertexesHash.get(in.getCode());
 }
 

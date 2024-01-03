@@ -202,8 +202,6 @@ void Menu::startOption3Menu(Airport a) {
 
             }
         case 4:
-            cout << "Whats the code of the source airport?" << endl;
-            cin >> input;
             cout << "How many stops?" << endl;
             cin >> stops;
             set<Airport> k = manager.reachableAirports(input, stops);
@@ -494,13 +492,15 @@ void Menu::startOption9Menu() {
     int option;
     cout << "Whats the value of k?" << endl;
     cin >> option;
-    cout << manager.getTraffic()[option].first.getCode() << "with " << manager.getTraffic()[option].second << " flights";
+    cout << manager.getTraffic()[option - 1].first.getCode() << " with " << manager.getTraffic()[option - 1].second << " flights";
     startMenu();
 }
 void Menu::startOption10Menu() {
+    int y = 0;
     for (auto i : manager.findArticulationPoints()) {
         cout << i.getCode() << endl;
+        y++;
     }
-    cout << manager.findArticulationPoints().size();
+    cout << y << endl;
     startMenu();
 };

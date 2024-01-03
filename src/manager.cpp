@@ -169,12 +169,7 @@ vector<Edge<Airport>> Manager::getFlightsOutAnAirportByName(string name) {
 //Search the graph fpr the right vertex and then returns the flights
 // Time complexity O(n) being n the size of the graph vertex set
 vector<Edge<Airport>> Manager::getFlightsOutAnAirportByCode(string code) {
-    for (auto i : airportsGraph.getVertexSet()) {
-        if (i->getInfo().getCode() == code) {
-            return i->getAdj();
-        }
-    }
-    return vector<Edge<Airport>>();
+    return airportsGraph.findVertex(airportsHash.get(code))->getAdj();
 }
 
 //Returns the number of flights
@@ -424,7 +419,9 @@ set<Airport> Manager::findArticulationPoints() {
     set<Airport> articulationPoints;
     map<Airport, int> disc;
     map<Airport, int> low;
-
+    for (auto i : airportsUndirectedGraph.getVertexSet()) {
+        i->setVisited(false);
+    }
     for (Vertex<Airport>* v : airportsUndirectedGraph.getVertexSet()) {
         if (!v->isVisited()) {
             dfsArticulationPoints(v, NULL, articulationPoints, disc, low);
